@@ -137,10 +137,7 @@ export default function Page() {
 							<span className="gradient-text">DYTOR</span>
 						</h1>
 						<p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl mx-auto">
-							The fastest way to run world‑class shows.
-						</p>
-						<p className="text-lg text-gray-400 mb-10">
-							Ultra‑precise timers, role‑based remote control, multi‑screen display, message cues, and schedules — perfectly in sync across your entire production.
+							Professional show control and stage management—precise timers, remote coordination, and real-time sync for flawless productions.
 						</p>
 						<div className="flex flex-col sm:flex-row justify-center gap-4">
 							<a href="#demo" className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 transition-all shadow-lg shadow-cyan-500/20 font-medium text-center" aria-label="Try live demo">
