@@ -32,20 +32,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en">
 			<head>
 				<link rel="canonical" href="https://dytor.app/" />
-				<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 				<link rel="icon" href="/assets/Dytor_Icon_light_mode.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" />
 				<link rel="icon" href="/assets/Dytor_icon_dark_mode.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 				<link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
-				<link rel="dns-prefetch" href="https://unpkg.com" />
-				<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-				<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 				<script src="https://cdn.tailwindcss.com"></script>
-				<Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" strategy="afterInteractive" />
-				<Script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" strategy="afterInteractive" />
-				<Script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.min.js" strategy="afterInteractive" />
-				<Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" strategy="afterInteractive" />
 				<script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
 					"@context": "https://schema.org",
 					"@type": "SoftwareApplication",
