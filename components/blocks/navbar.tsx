@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 type MenuItem = { name: string; href: string }
 
 const MENU_ITEMS: MenuItem[] = [
-  { name: 'Features', href: '#link' },
+  { name: 'Features', href: '/features' },
   { name: 'Use Case', href: '#link' },
   { name: 'Pricing', href: '#link' },
   { name: 'About', href: '#link' },
