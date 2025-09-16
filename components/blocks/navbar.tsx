@@ -11,7 +11,8 @@ type MenuItem = { name: string; href: string }
 
 const MENU_ITEMS: MenuItem[] = [
   { name: 'Features', href: '/features' },
-  { name: 'Use Case', href: '/use-cases' },
+  { name: 'Use Case', href: '#link' },
+  { name: 'Pricing', href: '/pricing' },
   { name: 'About', href: '#link' },
 ]
 

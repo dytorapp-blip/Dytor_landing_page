@@ -107,8 +107,8 @@ export function HeroSection() {
                                         <Image
                                             src="/assets/Dytor_icon_dark_mode.png"
                                             alt="Dytor Logo"
-                                            width={400}
-                                            height={400}
+                                            width={400} 
+                                            height={400} 
                                             priority={false}
                                             className="w-full h-auto"
                                         />
