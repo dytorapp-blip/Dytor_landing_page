@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { BeamsBackground } from '@/components/ui/beams-background'
 import { cn } from '@/lib/utils'
-import { Navbar } from '@/components/blocks/navbar'
 
 const transitionVariants = {
     item: {
@@ -33,7 +32,6 @@ const transitionVariants = {
 export function HeroSection() {
     return (
         <BeamsBackground intensity="medium" className="min-h-screen">
-            <Navbar />
             <main className="overflow-hidden">
                 <div
                     aria-hidden

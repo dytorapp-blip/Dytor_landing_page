@@ -26,6 +26,7 @@ export const metadata = {
 
 import './globals.css';
 import Script from 'next/script';
+import { Navbar } from '@/components/blocks/navbar';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				})}} />
 			</head>
 			<body className="min-h-screen">
+				<Navbar />
 				{children}
 			</body>
 		</html>
