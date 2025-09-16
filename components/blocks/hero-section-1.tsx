@@ -43,24 +43,24 @@ export function HeroSection() {
                     <div className="h-[80rem] -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
                 </div>
                 <section>
-                    <div className="relative pt-24 md:pt-36">
+                    <div className="relative min-h-screen flex items-center pt-24 md:pt-36 pb-16">
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
-                        <div className="mx-auto max-w-7xl px-6">
-                            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                        <div className="mx-auto max-w-7xl px-6 w-full">
+                            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 min-h-[60vh]">
                                 {/* Left side - Copy */}
-                                <div className="flex-1 text-center lg:text-left">
+                                <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
                                 <AnimatedGroup variants={transitionVariants}>
                                         <h1
-                                            className="mt-8 max-w-4xl mx-auto lg:mx-0 text-balance text-2xl md:text-3xl lg:mt-16 xl:text-4xl font-extrabold" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                                            <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent leading-tight uppercase">
+                                            className="max-w-4xl mx-auto lg:mx-0 text-balance text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                                            <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent uppercase">
                                                 Own
                                                 </span>
-                                            <span className="block bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 dark:from-gray-300 dark:via-gray-100 dark:to-gray-300 bg-clip-text text-transparent leading-tight uppercase">
+                                            <span className="block bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 dark:from-gray-300 dark:via-gray-100 dark:to-gray-300 bg-clip-text text-transparent uppercase">
                                                 the Stage
                                                 </span>
                                     </h1>
                                     <p
-                                            className="mx-auto lg:mx-0 mt-4 max-w-2xl text-balance text-base">
+                                            className="mx-auto lg:mx-0 mt-6 max-w-2xl text-balance text-lg md:text-xl text-gray-600 dark:text-gray-300">
                                             Professional timer app for complete event control conferences, theater, and broadcasts.
                                     </p>
                                 </AnimatedGroup>
@@ -77,14 +77,14 @@ export function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                        className="mt-12 flex flex-col items-center lg:items-start justify-center gap-2 md:flex-row">
+                                        className="mt-8 flex flex-col items-center lg:items-start justify-center gap-4 md:flex-row">
                                     <div
                                         key={1}
                                         className="bg-foreground/10 rounded-[14px] border p-0.5">
                                         <Button
                                             asChild
                                             size="lg"
-                                            className="rounded-xl px-5 text-base">
+                                            className="rounded-xl px-8 py-3 text-base font-semibold">
                                             <Link href="#link">
                                                     <span className="text-nowrap">Get Started</span>
                                             </Link>
@@ -95,7 +95,7 @@ export function HeroSection() {
                                         asChild
                                         size="lg"
                                         variant="ghost"
-                                        className="h-10.5 rounded-xl px-5">
+                                        className="h-12 rounded-xl px-8 font-semibold">
                                         <Link href="#link">
                                             <span className="text-nowrap">Request a demo</span>
                                         </Link>
@@ -104,11 +104,11 @@ export function HeroSection() {
                                 </div>
 
                                 {/* Right side - Thermal Effect */}
-                                <div className="flex-1 flex justify-center lg:justify-end">
-                                    <div className="w-full max-w-md lg:max-w-lg">
+                                <div className="flex-1 flex justify-center lg:justify-end items-center">
+                                    <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
                                         <ThermalEffect 
-                                            width={300} 
-                                            height={300} 
+                                            width={400} 
+                                            height={400} 
                                             logoUrl="/assets/Dytor_icon_dark_mode.png"
                                             className="w-full h-full"
                                         />
@@ -129,7 +129,7 @@ export function HeroSection() {
                                 },
                                 ...transitionVariants,
                             }}>
-                            <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+                            <div className="relative -mr-56 mt-16 overflow-hidden px-2 sm:mr-0 sm:mt-20 md:mt-24">
                                 <div
                                     aria-hidden
                                     className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
@@ -154,7 +154,7 @@ export function HeroSection() {
                         </AnimatedGroup>
                     </div>
                 </section>
-                <section className="bg-background pb-16 pt-16 md:pb-32">
+                <section className="bg-background pb-20 pt-20 md:pb-32 md:pt-24">
                     <div className="group relative m-auto max-w-5xl px-6">
                         <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
                             <Link
