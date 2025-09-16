@@ -47,18 +47,8 @@ export function BeamsBackground({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
     const animationFrameRef = useRef<number>(0);
-    // Performance knobs
-    const MAX_DEVICE_PIXEL_RATIO = 1.5;
-    const INTERNAL_RESOLUTION_SCALE = 0.75; // render at 75% resolution to reduce fill cost
-    const TARGET_FPS = 30; // throttle to ~30fps
-    const FRAME_INTERVAL_MS = 1000 / TARGET_FPS;
-
-    // Tune beam counts by intensity for lower cost
-    const BASE_BEAMS_BY_INTENSITY: Record<NonNullable<AnimatedGradientBackgroundProps["intensity"]>, number> = {
-        subtle: 10,
-        medium: 16,
-        strong: 22,
-    };
+    const isAnimatingRef = useRef<boolean>(true);
+    const MINIMUM_BEAMS = 10;
 
     const opacityMap = {
         subtle: 0.7,
@@ -73,35 +63,45 @@ export function BeamsBackground({
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        // Track last draw time for FPS throttling
-        let lastFrameTime = 0;
-
         const updateCanvasSize = () => {
-            const rawDpr = window.devicePixelRatio || 1;
-            const dpr = Math.min(rawDpr, MAX_DEVICE_PIXEL_RATIO);
-
-            const cssWidth = Math.floor(window.innerWidth);
-            const cssHeight = Math.floor(window.innerHeight);
-
-            const internalWidth = Math.max(1, Math.floor(cssWidth * dpr * INTERNAL_RESOLUTION_SCALE));
-            const internalHeight = Math.max(1, Math.floor(cssHeight * dpr * INTERNAL_RESOLUTION_SCALE));
-
-            // Reset any existing transform before resizing and scaling
+            // Cap device pixel ratio to prevent overly large canvases on hi‑DPI
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            canvas.width = Math.floor(width * dpr);
+            canvas.height = Math.floor(height * dpr);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            // Reset transform then apply scale for DPR
             ctx.setTransform(1, 0, 0, 1, 0, 0);
-            canvas.width = internalWidth;
-            canvas.height = internalHeight;
-            canvas.style.width = `${cssWidth}px`;
-            canvas.style.height = `${cssHeight}px`;
-            ctx.scale((internalWidth / cssWidth), (internalHeight / cssHeight));
+            ctx.scale(dpr, dpr);
 
-            const totalBeams = BASE_BEAMS_BY_INTENSITY[intensity];
+            const prefersReducedMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            ).matches;
+            const totalBeams = prefersReducedMotion ? MINIMUM_BEAMS : MINIMUM_BEAMS * 1.2;
             beamsRef.current = Array.from({ length: totalBeams }, () =>
                 createBeam(canvas.width, canvas.height)
             );
         };
 
         updateCanvasSize();
-        window.addEventListener("resize", updateCanvasSize);
+        // Throttle resize handler
+        let resizeTimeout: number | undefined;
+        const onResize = () => {
+            if (resizeTimeout) window.clearTimeout(resizeTimeout);
+            resizeTimeout = window.setTimeout(() => updateCanvasSize(), 150);
+        };
+        window.addEventListener("resize", onResize);
+
+        // Pause animation when tab is hidden
+        const onVisibility = () => {
+            isAnimatingRef.current = document.visibilityState === 'visible';
+            if (isAnimatingRef.current) {
+                animationFrameRef.current = requestAnimationFrame(animate);
+            }
+        };
+        document.addEventListener('visibilitychange', onVisibility);
 
         function resetBeam(beam: Beam, index: number, totalBeams: number) {
             if (!canvas) return beam;
@@ -159,25 +159,13 @@ export function BeamsBackground({
             ctx.restore();
         }
 
-        let isVisible = true; // page visibility and intersection combined
-
-        function animate(now: number) {
+        function animate() {
             if (!canvas || !ctx) return;
-
-            // Throttle to target FPS and pause when not visible
-            if (!isVisible) {
-                animationFrameRef.current = requestAnimationFrame(animate);
-                return;
-            }
-            if (now - lastFrameTime < FRAME_INTERVAL_MS) {
-                animationFrameRef.current = requestAnimationFrame(animate);
-                return;
-            }
-            lastFrameTime = now;
+            if (!isAnimatingRef.current) return;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // Lower blur to reduce GPU cost
-            ctx.filter = "blur(14px)";
+            // Reduce heavy blur for performance
+            ctx.filter = "blur(20px)";
 
             const totalBeams = beamsRef.current.length;
             beamsRef.current.forEach((beam, index) => {
@@ -195,29 +183,14 @@ export function BeamsBackground({
             animationFrameRef.current = requestAnimationFrame(animate);
         }
 
-        // Pause when tab is hidden
-        const onVisibility = () => {
-            isVisible = !document.hidden;
-        };
-        document.addEventListener("visibilitychange", onVisibility);
-
-        // Pause when component is out of viewport
-        const host = canvas.parentElement || canvas;
-        const io = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            isVisible = entry.isIntersecting && !document.hidden;
-        }, { root: null, threshold: 0 });
-        io.observe(host);
-
-        animationFrameRef.current = requestAnimationFrame(animate);
+        animate();
 
         return () => {
-            window.removeEventListener("resize", updateCanvasSize);
+            window.removeEventListener("resize", onResize);
+            document.removeEventListener('visibilitychange', onVisibility);
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current);
             }
-            document.removeEventListener("visibilitychange", onVisibility);
-            io.disconnect();
         };
     }, [intensity]);
 
@@ -231,21 +204,21 @@ export function BeamsBackground({
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0"
-                style={{ filter: "blur(8px)" }}
+                style={{ filter: "blur(15px)" }}
             />
 
             <motion.div
                 className="absolute inset-0 bg-neutral-950/5"
                 animate={{
-                    opacity: [0.04, 0.12, 0.04],
+                    opacity: [0.05, 0.15, 0.05],
                 }}
                 transition={{
-                    duration: 12,
+                    duration: 10,
                     ease: "easeInOut",
                     repeat: Number.POSITIVE_INFINITY,
                 }}
                 style={{
-                    backdropFilter: "blur(24px)",
+                    backdropFilter: "blur(50px)",
                 }}
             />
 

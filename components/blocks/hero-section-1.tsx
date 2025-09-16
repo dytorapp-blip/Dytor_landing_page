@@ -7,7 +7,7 @@ import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { BeamsBackground } from '@/components/ui/beams-background'
-import { ThermalEffect } from '@/components/ui/thermal-shader'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const transitionVariants = {
@@ -103,14 +103,16 @@ export function HeroSection() {
                                 </AnimatedGroup>
                                 </div>
 
-                                {/* Right side - Thermal Effect */}
+                                {/* Right side - Optimized image */}
                                 <div className="flex-1 flex justify-center lg:justify-end items-center">
                                     <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-                                        <ThermalEffect 
-                                            width={400} 
-                                            height={400} 
-                                            logoUrl="/assets/Dytor_icon_dark_mode.png"
-                                            className="w-full h-full"
+                                        <Image
+                                            src="/assets/Dytor_icon_dark_mode.png"
+                                            alt="Dytor Logo"
+                                            width={400}
+                                            height={400}
+                                            priority={false}
+                                            className="w-full h-auto"
                                         />
                                     </div>
                                 </div>
