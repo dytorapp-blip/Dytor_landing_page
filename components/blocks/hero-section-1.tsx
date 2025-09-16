@@ -473,57 +473,7 @@ export function HeroSection() {
                     </div>
                 </section>
 
-                {/* Pricing */}
-                <section className="py-24">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-                            Simple Pricing
-                        </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Start free. Upgrade when you need advanced remote control and team features.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col">
-                            <h3 className="text-xl font-bold mb-2">Starter</h3>
-                            <div className="text-3xl font-extrabold mb-4">$0</div>
-                            <ul className="text-sm text-gray-300 space-y-2 mb-6">
-                                <li>Local controller</li>
-                                <li>Secondary display</li>
-                                <li>Basic messages</li>
-                            </ul>
-                            <Button asChild className="mt-auto">
-                                <Link href="#demo">Get Started</Link>
-                            </Button>
-                        </div>
-                        <div className="bg-background/50 backdrop-blur-lg border border-cyan-500/40 rounded-2xl p-6 flex flex-col ring-1 ring-cyan-500/40">
-                            <h3 className="text-xl font-bold mb-2">Pro</h3>
-                            <div className="text-3xl font-extrabold mb-4">$12<span className="text-base font-semibold text-gray-400">/mo</span></div>
-                            <ul className="text-sm text-gray-300 space-y-2 mb-6">
-                                <li>Remote dashboards + roles</li>
-                                <li>QR auth links</li>
-                                <li>Message flashing & presets</li>
-                                <li>Schedule automation</li>
-                                <li>Records & exports</li>
-                            </ul>
-                            <Button asChild className="mt-auto bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
-                                <Link href="#contact">Start Pro</Link>
-                            </Button>
-                        </div>
-                        <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col">
-                            <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-                            <div className="text-3xl font-extrabold mb-4">Custom</div>
-                            <ul className="text-sm text-gray-300 space-y-2 mb-6">
-                                <li>On‑prem or offline mode</li>
-                                <li>SSO and audit logs</li>
-                                <li>Priority support</li>
-                            </ul>
-                            <Button asChild variant="outline" className="mt-auto">
-                                <Link href="#contact">Contact Sales</Link>
-                            </Button>
-                        </div>
-                    </div>
-                </section>
+                
 
                 {/* FAQ */}
                 <section className="py-24">
