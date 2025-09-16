@@ -13,7 +13,7 @@ const MENU_ITEMS: MenuItem[] = [
   { name: 'Features', href: '/features' },
   { name: 'Use Case', href: '/use-cases' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'About', href: '#link' },
+  { name: 'Docs', href: '/docs' },
 ]
 
 const Logo = React.memo(function Logo({ className }: { className?: string }) {
