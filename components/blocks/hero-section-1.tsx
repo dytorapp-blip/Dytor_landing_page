@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
@@ -44,22 +43,19 @@ export function HeroSection() {
                     <div className="relative min-h-screen flex items-center pt-24 md:pt-36 pb-16">
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
                         <div className="mx-auto max-w-7xl px-6 w-full">
-                            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 min-h-[60vh]">
-                                {/* Left side - Copy */}
-                                <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
+                            <div className="flex flex-col items-center justify-center gap-12 min-h-[60vh]">
+                                {/* Hero Content */}
+                                <div className="max-w-4xl text-center flex flex-col justify-center">
                                 <AnimatedGroup variants={transitionVariants}>
                                         <h1
                                             className="max-w-4xl mx-auto lg:mx-0 text-balance text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
                                             <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
-                                                Professional Show Control
-                                                </span>
-                                            <span className="block bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 dark:from-gray-300 dark:via-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
-                                                & Stage Management
+                                                Professional Event Timer Control
                                                 </span>
                                     </h1>
                                     <p
                                             className="mx-auto lg:mx-0 mt-6 max-w-2xl text-balance text-lg md:text-xl text-gray-600 dark:text-gray-300">
-                                            Comprehensive timer management, event scheduling, and real-time control for live events, conferences, and theatrical productions.
+                                            Flexible display connectivity - control timers via wired connections or wireless networks for any professional event
                                     </p>
                                 </AnimatedGroup>
 
@@ -75,7 +71,7 @@ export function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                        className="mt-8 flex flex-col items-center lg:items-start justify-center gap-4 md:flex-row">
+                                        className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
                                     <div
                                         key={1}
                                         className="bg-foreground/10 rounded-[14px] border p-0.5">
@@ -101,64 +97,16 @@ export function HeroSection() {
                                 </AnimatedGroup>
                                 
                                 {/* Trust Badge */}
-                                <div className="mt-8 text-center lg:text-left">
+                                <div className="mt-8 text-center">
                                     <p className="text-sm text-gray-500 dark:text-gray-400">
                                         Trusted by event managers, stage directors, and conference organizers worldwide
                                     </p>
-                                </div>
-                                </div>
-
-                                {/* Right side - Optimized image */}
-                                <div className="flex-1 flex justify-center lg:justify-end items-center">
-                                    <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-                                        <Image
-                                            src="/assets/Dytor_icon_dark_mode.png"
-                                            alt="Dytor Logo"
-                                            width={400} 
-                                            height={400} 
-                                            priority={false}
-                                            className="w-full h-auto"
-                                        />
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
-                        <AnimatedGroup
-                            variants={{
-                                container: {
-                                    visible: {
-                                        transition: {
-                                            staggerChildren: 0.05,
-                                            delayChildren: 0.75,
-                                        },
-                                    },
-                                },
-                                ...transitionVariants,
-                            }}>
-                            <div className="relative -mr-56 mt-16 overflow-hidden px-2 sm:mr-0 sm:mt-20 md:mt-24">
-                                <div
-                                    aria-hidden
-                                    className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
-                                />
-                                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                                    <img
-                                        className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=2700&h=1440&fit=crop&crop=center"
-                                        alt="app screen"
-                                        width="2700"
-                                        height="1440"
-                                    />
-                                    <img
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=2700&h=1440&fit=crop&crop=center"
-                                        alt="app screen"
-                                        width="2700"
-                                        height="1440"
-                                    />
-                                </div>
-                            </div>
-                        </AnimatedGroup>
                     </div>
                 </section>
                 <section className="bg-background pb-20 pt-20 md:pb-32 md:pt-24">
