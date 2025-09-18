@@ -7,7 +7,6 @@ import { ArrowRight, ChevronRight, Menu, X, Users, Target, Zap, Globe, Award, He
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { BeamsBackground } from '@/components/ui/beams-background'
-import { ThermalEffect } from '@/components/ui/thermal-shader'
 import { cn } from '@/lib/utils'
 
 const transitionVariants = {
@@ -105,14 +104,15 @@ export function AboutSection() {
                                     </AnimatedGroup>
                                 </div>
 
-                                {/* Right side - Thermal Effect */}
+                                {/* Right side - Hero Image */}
                                 <div className="flex-1 flex justify-center lg:justify-end">
                                     <div className="w-full max-w-md lg:max-w-lg">
-                                        <ThermalEffect 
-                                            width={300} 
-                                            height={300} 
-                                            logoUrl="/assets/Dytor_icon_dark_mode.png"
-                                            className="w-full h-full"
+                                        <Image
+                                            src="/app/resources/heropic.png"
+                                            alt="DYTOR Hero"
+                                            width={300}
+                                            height={300}
+                                            className="w-full h-full object-cover transform -rotate-90"
                                         />
                                     </div>
                                 </div>

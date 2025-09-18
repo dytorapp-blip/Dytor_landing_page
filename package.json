@@ -28,6 +28,10 @@
     "three": "^0.180.0"
   },
   "type": "module",
+  "engines": {
+    "node": ">=18.20.4",
+    "npm": ">=8.0.0"
+  },
   "devDependencies": {
     "@next/swc-wasm-nodejs": "^15.5.3",
     "@types/node": "24.3.1",

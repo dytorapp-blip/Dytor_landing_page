@@ -2,36 +2,65 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { AnimatedGroup } from "@/components/ui/animated-group";
+import { BeamsBackground } from "@/components/ui/beams-background";
+import { cn } from "@/lib/utils";
+
+const transitionVariants = {
+    item: {
+        hidden: {
+            opacity: 0,
+            filter: 'blur(12px)',
+            y: 12,
+        },
+        visible: {
+            opacity: 1,
+            filter: 'blur(0px)',
+            y: 0,
+            transition: {
+                type: 'spring' as const,
+                bounce: 0.3,
+                duration: 1.5,
+            },
+        },
+    },
+};
 
 export function FeaturesPage() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <Highlights />
-      <DetailedFeatures />
-      <CTA />
-    </main>
+    <BeamsBackground intensity="medium" className="min-h-screen">
+      <main className="overflow-hidden">
+        <Hero />
+        <Highlights />
+        <DetailedFeatures />
+        <CTA />
+      </main>
+    </BeamsBackground>
   );
 }
 
 function Hero() {
   return (
-    <section className="pt-28 md:pt-36 pb-16">
-      <div className="mx-auto max-w-6xl px-6 text-center">
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-          Powerful features for real productions
-        </h1>
-        <p className="mt-4 text-gray-500 dark:text-gray-300 max-w-2xl mx-auto">
-          DYTOR brings precision timing, multi‑device control, and broadcast‑grade reliability to your shows.
-        </p>
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <Button asChild>
-            <Link href="#demo">Try a demo</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="#contact">Contact sales</Link>
-          </Button>
-        </div>
+    <section className="pt-24 md:pt-36 pb-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <AnimatedGroup variants={transitionVariants}>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+              Powerful Features for Professional Events
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              Everything you need to manage timing, scheduling, and communication for successful live events
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
+                <Link href="#demo">Try a Demo</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="px-8 py-4 border-cyan-500/40 hover:bg-cyan-500/10">
+                <Link href="#contact">Contact Sales</Link>
+              </Button>
+            </div>
+          </div>
+        </AnimatedGroup>
       </div>
     </section>
   );
@@ -40,45 +69,66 @@ function Hero() {
 function Highlights() {
   const items = [
     {
-      title: "Drift‑free sync",
-      desc: "BroadcastChannel + WebSocket fusion keeps every device in perfect time.",
+      title: "Dual Timer System",
+      desc: "Countdown and count-up timers with real-time display, pause/resume functionality, and customizable alerts when time expires.",
     },
     {
-      title: "Role‑based dashboards",
-      desc: "Purpose‑built views for admin, queue manager, speakers, and observers.",
+      title: "Event Scheduling",
+      desc: "Drag-and-drop event queue with auto-fill controls, visual schedule management, and seamless event progression.",
     },
     {
-      title: "Secondary display",
-      desc: "Beautiful big‑screen view with customizable backgrounds and branding.",
+      title: "Message Broadcasting",
+      desc: "Send custom messages to all displays with preset options, flash effects, and real-time visibility control.",
     },
     {
-      title: "Message cues",
-      desc: "Flash, presets, and visibility toggles for crisp on‑air coordination.",
+      title: "Remote Control",
+      desc: "Multi-device access with role-based permissions, WebSocket synchronization, and real-time connection monitoring.",
     },
     {
-      title: "Schedule automation",
-      desc: "Plan vs actual tracking, with auto‑advance and clear logs for post‑mortems.",
+      title: "Multi-Display Support",
+      desc: "Primary control interface with secondary display support, customizable backgrounds, and responsive design.",
     },
     {
-      title: "Secure remote access",
-      desc: "Short‑lived QR links and explicit permissions ensure least‑privilege control.",
+      title: "Analytics & Recording",
+      desc: "Automatic session tracking, detailed event logs, lag monitoring, and PDF export capabilities for performance analysis.",
     },
   ];
 
   return (
-    <section className="py-12 md:py-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+            Core Features
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Everything you need for professional show control
+          </p>
+        </div>
+        <AnimatedGroup
+          variants={{
+            container: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2,
+                },
+              },
+            },
+            ...transitionVariants,
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {items.map((it) => (
             <div
               key={it.title}
-              className="rounded-2xl border bg-background/50 backdrop-blur-sm p-6 hover:-translate-y-1 transition-all duration-300"
+              className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:-translate-y-2 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
             >
-              <h3 className="text-lg font-semibold mb-2">{it.title}</h3>
-              <p className="text-sm text-muted-foreground">{it.desc}</p>
+              <h3 className="text-lg font-semibold mb-2 text-white">{it.title}</h3>
+              <p className="text-sm text-gray-400">{it.desc}</p>
             </div>
           ))}
-        </div>
+        </AnimatedGroup>
       </div>
     </section>
   );
@@ -113,16 +163,24 @@ function DetailedFeatures() {
   ];
 
   return (
-    <section className="py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+            Advanced Capabilities
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Professional-grade features for demanding productions
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {sections.map((sec) => (
-            <div key={sec.heading} className="rounded-2xl border p-6 bg-background/50 backdrop-blur-sm">
-              <h3 className="text-xl font-bold mb-3">{sec.heading}</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+            <div key={sec.heading} className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
+              <h3 className="text-2xl font-bold mb-6 text-white">{sec.heading}</h3>
+              <ul className="space-y-3 text-sm text-gray-300">
                 {sec.points.map((p) => (
-                  <li key={p} className="flex gap-2">
-                    <span className="text-emerald-400">✓</span>
+                  <li key={p} className="flex gap-3">
+                    <span className="text-emerald-400 text-lg">✓</span>
                     <span>{p}</span>
                   </li>
                 ))}
@@ -137,21 +195,23 @@ function DetailedFeatures() {
 
 function CTA() {
   return (
-    <section className="py-20 text-center">
-      <div className="mx-auto max-w-3xl px-6">
-        <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-          Ready to run your next show with confidence?
-        </h2>
-        <p className="mt-4 text-gray-500 dark:text-gray-300">
-          Start free, then upgrade when your production needs scale.
-        </p>
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <Button asChild>
-            <Link href="#demo">Get started</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="#contact">Talk to us</Link>
-          </Button>
+    <section className="py-32">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+            Ready to Run Your Next Show with Confidence?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Start free, then upgrade when your production needs scale.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
+              <Link href="#demo">Get Started</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="px-8 py-4 border-cyan-500/40 hover:bg-cyan-500/10">
+              <Link href="#contact">Talk to Us</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
