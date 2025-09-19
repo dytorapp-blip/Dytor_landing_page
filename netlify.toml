@@ -5,4 +5,17 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Handle room routes
+[[redirects]]
+  from = "/room/*"
+  to = "/room/:splat"
+  status = 200
+
+# Handle API proxy for room server (for development)
+[[redirects]]
+  from = "/api/rooms/*"
+  to = "http://localhost:3002/api/rooms/:splat"
+  status = 200
+  force = false
+
 
