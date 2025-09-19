@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
@@ -43,19 +44,21 @@ export function HeroSection() {
                     <div className="relative min-h-screen flex items-center pt-24 md:pt-36 pb-16">
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
                         <div className="mx-auto max-w-7xl px-6 w-full">
-                            <div className="flex flex-col items-center justify-center gap-12 min-h-[60vh]">
-                                {/* Hero Content */}
-                                <div className="max-w-4xl text-center flex flex-col justify-center">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
+                                {/* Hero Content - Left Side */}
+                                <div className="flex flex-col justify-center space-y-8">
                                 <AnimatedGroup variants={transitionVariants}>
                                         <h1
-                                            className="max-w-4xl mx-auto lg:mx-0 text-balance text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                                            <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
-                                                Professional Event Timer Control
-                                                </span>
+                                            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                                            <div className="text-white dark:text-white">
+                                                Professional Show Control<br />
+                                                & Stage Management
+                                            </div>
                                     </h1>
                                     <p
-                                            className="mx-auto lg:mx-0 mt-6 max-w-2xl text-balance text-lg md:text-xl text-gray-600 dark:text-gray-300">
-                                            Flexible display connectivity - control timers via wired connections or wireless networks for any professional event
+                                            className="mt-8 max-w-2xl text-sm md:text-base text-gray-200 dark:text-gray-200 leading-relaxed">
+                                            Control your event timing, schedule<br />
+                                            and communications from anywhere.
                                     </p>
                                 </AnimatedGroup>
 
@@ -71,7 +74,7 @@ export function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                        className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
+                                        className="flex flex-col sm:flex-row gap-4">
                                     <div
                                         key={1}
                                         className="bg-foreground/10 rounded-[14px] border p-0.5">
@@ -80,7 +83,7 @@ export function HeroSection() {
                                             size="lg"
                                             className="rounded-xl px-8 py-3 text-base font-semibold">
                                             <Link href="#demo">
-                                                    <span className="text-nowrap">See Live Demo</span>
+                                                    <span className="text-nowrap">Download</span>
                                             </Link>
                                         </Button>
                                     </div>
@@ -97,102 +100,110 @@ export function HeroSection() {
                                 </AnimatedGroup>
                                 
                                 {/* Trust Badge */}
-                                <div className="mt-8 text-center">
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                                <div className="mt-6">
+                                    <p className="text-base text-gray-300 dark:text-gray-300">
                                         Trusted by event managers, stage directors, and conference organizers worldwide
                                     </p>
                                     </div>
                                 </div>
 
+                                {/* Hero Image - Right Side */}
+                                <div className="flex items-start justify-center lg:justify-end -mt-16 pt-4">
+                                    <Image
+                                        src="/assets/hero section.png"
+                                        alt="DYTOR Professional Show Control Interface"
+                                        width={1200}
+                                        height={900}
+                                        className="w-full h-auto max-w-5xl shadow-2xl"
+                                        priority
+                                    />
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </section>
-                <section className="bg-background pb-20 pt-20 md:pb-32 md:pt-24">
-                    <div className="group relative m-auto max-w-5xl px-6">
-                        <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
-                            <Link
-                                href="/"
-                                className="block text-sm duration-150 hover:opacity-75">
-                                <span> Meet Our Customers</span>
 
-                                <ChevronRight className="ml-1 inline-block size-3" />
-                            </Link>
+                {/* Dual Timer System Section */}
+                <section className="py-20">
+                    <div className="mx-auto max-w-7xl px-6">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            {/* Image - Left Side */}
+                            <div className="flex items-center justify-center lg:justify-start">
+                                <Image
+                                    src="/assets/control.png"
+                                    alt="Dual Timer System Interface"
+                                    width={600}
+                                    height={400}
+                                    className="w-full h-auto max-w-lg shadow-2xl"
+                                    priority
+                                />
+                            </div>
+
+                            {/* Copy - Right Side */}
+                            <div className="space-y-6">
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                                    Dual Timer System
+                                </h2>
+                                <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
+                                    Countdown and count-up timers with real-time display, pause/resume functionality, and customizable alerts when time expires.
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <span className="text-gray-200">Real-time precision timing</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <span className="text-gray-200">Pause and resume functionality</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <span className="text-gray-200">Customizable alerts and notifications</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="group-hover:blur-xs mx-auto mt-12 grid max-w-2xl grid-cols-4 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 sm:gap-x-16 sm:gap-y-14">
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=20&fit=crop&crop=center"
-                                    alt="Nvidia Logo"
-                                    height="20"
-                                    width="auto"
-                                />
+                    </div>
+                </section>
+
+                {/* Event Scheduling Section */}
+                <section className="py-20">
+                    <div className="mx-auto max-w-7xl px-6">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            {/* Copy - Left Side */}
+                            <div className="space-y-6">
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                                    Event Scheduling
+                                </h2>
+                                <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
+                                    Drag-and-drop event queue with auto-fill controls, visual schedule management, and seamless event progression.
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                        <span className="text-gray-200">Drag-and-drop event management</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                        <span className="text-gray-200">Auto-fill controls and presets</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                        <span className="text-gray-200">Visual schedule progression</span>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-4 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=16&fit=crop&crop=center"
-                                    alt="Column Logo"
-                                    height="16"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-4 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=16&fit=crop&crop=center"
-                                    alt="GitHub Logo"
-                                    height="16"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=20&fit=crop&crop=center"
-                                    alt="Nike Logo"
-                                    height="20"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=20&fit=crop&crop=center"
-                                    alt="Lemon Squeezy Logo"
-                                    height="20"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-4 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=16&fit=crop&crop=center"
-                                    alt="Laravel Logo"
-                                    height="16"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-7 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=28&fit=crop&crop=center"
-                                    alt="Lilly Logo"
-                                    height="28"
-                                    width="auto"
-                                />
-                            </div>
-
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-6 w-fit dark:invert"
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=24&fit=crop&crop=center"
-                                    alt="OpenAI Logo"
-                                    height="24"
-                                    width="auto"
+                            {/* Image - Right Side */}
+                            <div className="flex items-center justify-center lg:justify-end">
+                                <Image
+                                    src="/assets/Event Scheduling.png"
+                                    alt="Event Scheduling Interface"
+                                    width={600}
+                                    height={400}
+                                    className="w-full h-auto max-w-lg shadow-2xl"
+                                    priority
                                 />
                             </div>
                         </div>
