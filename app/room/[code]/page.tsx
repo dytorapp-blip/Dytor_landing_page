@@ -6,9 +6,12 @@ import { useEffect } from 'react';
 // Simple redirect component
 const RoomRedirect = ({ roomCode, role }: { roomCode: string; role: string }) => {
   useEffect(() => {
-    // Redirect to the main Dytor web app with the room parameters
-    const redirectUrl = `https://dytor.netlify.app/room/${roomCode}?role=${role}`;
-    window.location.href = redirectUrl;
+    // Navigate directly to the room dashboard
+    // Use a direct JavaScript redirect to avoid Next.js routing conflicts
+    setTimeout(() => {
+      const redirectUrl = `https://dytor.netlify.app/room/${roomCode}?role=${role}`;
+      window.location.replace(redirectUrl);
+    }, 500);
   }, [roomCode, role]);
 
   return (
