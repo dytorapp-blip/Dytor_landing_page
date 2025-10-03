@@ -41,12 +41,12 @@ export function HeroSection() {
                     <div className="h-[80rem] -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
                 </div>
                 <section>
-                    <div className="relative min-h-screen flex items-center pt-24 md:pt-36 pb-16">
+                    <div className="relative min-h-screen flex items-center pt-20 md:pt-36 pb-12">
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
                         <div className="mx-auto max-w-7xl px-6 w-full">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
                                 {/* Hero Content - Left Side */}
-                                <div className="flex flex-col justify-center space-y-8">
+                                <div className="flex flex-col justify-center items-center md:items-start space-y-8 text-center md:text-left">
                                 <AnimatedGroup variants={transitionVariants}>
                                         <h1
                                             className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
@@ -74,14 +74,14 @@ export function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                        className="flex flex-col sm:flex-row gap-4">
+                                        className="flex flex-row gap-3 justify-center md:justify-start flex-nowrap">
                                     <div
                                         key={1}
                                         className="bg-foreground/10 rounded-[14px] border p-0.5">
                                         <Button
                                             asChild
                                             size="lg"
-                                            className="rounded-xl px-8 py-3 text-base font-semibold">
+                                            className="rounded-xl px-6 md:px-8 py-3 text-sm md:text-base font-semibold whitespace-nowrap">
                                             <Link href="#demo">
                                                     <span className="text-nowrap">Download</span>
                                             </Link>
@@ -92,7 +92,7 @@ export function HeroSection() {
                                         asChild
                                         size="lg"
                                         variant="ghost"
-                                        className="h-12 rounded-xl px-8 font-semibold">
+                                        className="h-12 rounded-xl px-6 md:px-8 text-sm md:text-base font-semibold whitespace-nowrap">
                                         <Link href="/features">
                                             <span className="text-nowrap">Explore Features</span>
                                         </Link>
@@ -108,7 +108,7 @@ export function HeroSection() {
                                 </div>
 
                                 {/* Hero Image - Right Side */}
-                                <div className="flex items-start justify-center lg:justify-end -mt-16 pt-4">
+                                <div className="flex items-start justify-center lg:justify-end mt-6 md:-mt-16 pt-4">
                                     <Image
                                         src="/assets/hero section.png"
                                         alt="DYTOR Professional Show Control Interface"
@@ -141,7 +141,7 @@ export function HeroSection() {
                             </div>
 
                             {/* Copy - Right Side */}
-                            <div className="space-y-6">
+                            <div className="space-y-6 text-center lg:text-left">
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
                                     Dual Timer System
                                 </h2>
@@ -172,7 +172,7 @@ export function HeroSection() {
                     <div className="mx-auto max-w-7xl px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             {/* Copy - Left Side */}
-                            <div className="space-y-6">
+                            <div className="space-y-6 text-center lg:text-left">
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
                                     Event Scheduling
                                 </h2>
@@ -537,9 +537,9 @@ export function HeroSection() {
                 </section>
 
                 {/* Demo Section */}
-                <section className="py-20">
+                <section id="demo" className="py-20">
                     <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden">
-                        <div className="p-12 flex flex-col md:flex-row items-center">
+                        <div className="p-6 md:p-12 flex flex-col md:flex-row items-center">
                             <div className="md:w-1/2 mb-10 md:mb-0">
                                 <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
                                     See Dytor Pro in Action
@@ -587,12 +587,12 @@ export function HeroSection() {
                             <div className="md:w-1/2 flex justify-center">
                                 <div className="relative">
                                     <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur-lg opacity-30"></div>
-                                    <div className="relative bg-background/80 rounded-xl p-8 backdrop-blur-sm border border-white/10">
+                                <div className="relative bg-background/80 rounded-xl p-6 md:p-8 backdrop-blur-sm border border-white/10">
                                         <div className="text-center mb-6">
                                             <h3 className="text-xl font-bold text-white mb-2">Live Timer Display</h3>
                                             <p className="text-sm text-gray-400">Current Event: Opening Keynote</p>
                                         </div>
-                                        <div className="text-6xl font-mono font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent mb-4 text-center">
+                                    <div className="text-4xl md:text-6xl font-mono font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent mb-4 text-center">
                                             15:00.000
                                         </div>
                                         <div className="flex justify-between text-sm text-gray-500 mb-4">
@@ -606,6 +606,66 @@ export function HeroSection() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Contact Section */}
+                <section id="contact" className="py-24">
+                    <div className="mx-auto max-w-4xl px-6">
+                        <div className="text-center mb-10">
+                            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+                                Get in Touch
+                            </h2>
+                            <p className="text-gray-400 max-w-2xl mx-auto">
+                                Have questions or want a guided demo? Send us a message and we’ll respond shortly.
+                            </p>
+                        </div>
+
+                        <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-6 md:p-10">
+                            <form name="contact" method="POST" data-netlify="true" className="grid grid-cols-1 gap-6">
+                                <input type="hidden" name="form-name" value="contact" />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                                        <input
+                                            id="name"
+                                            name="name"
+                                            required
+                                            className="w-full rounded-md border border-white/10 bg-background px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                                            placeholder="Jane Doe"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                        <input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            required
+                                            className="w-full rounded-md border border-white/10 bg-background px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                                            placeholder="jane@company.com"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={5}
+                                        required
+                                        className="w-full rounded-md border border-white/10 bg-background px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                                        placeholder="Tell us about your event and what you need..."
+                                    />
+                                </div>
+                                <div className="flex items-center justify-between gap-4">
+                                    <p className="text-xs text-gray-500">We’ll never share your information.</p>
+                                    <Button type="submit" size="lg" className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
+                                        Send Message
+                                    </Button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </section>

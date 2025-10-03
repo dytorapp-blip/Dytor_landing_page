@@ -94,17 +94,17 @@ export const Navbar = React.memo(function Navbar() {
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 <Button asChild variant="outline" size="sm" className={cn(isScrolled && 'lg:hidden')}>
-                  <Link href="#">
-                    <span>Login</span>
+                  <Link href="#contact">
+                    <span>Contact</span>
                   </Link>
                 </Button>
                 <Button asChild size="sm" className={cn(isScrolled && 'lg:hidden')}>
-                  <Link href="#">
-                    <span>Sign Up</span>
+                  <Link href="/pricing">
+                    <span>Pricing</span>
                   </Link>
                 </Button>
                 <Button asChild size="sm" className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                  <Link href="#">
+                  <Link href="#demo">
                     <span>Get Started</span>
                   </Link>
                 </Button>
