@@ -623,8 +623,7 @@ export function HeroSection() {
                         </div>
 
                         <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-6 md:p-10">
-                            <form name="contact" method="POST" data-netlify="true" className="grid grid-cols-1 gap-6">
-                                <input type="hidden" name="form-name" value="contact" />
+                            <form name="contact" method="POST" className="grid grid-cols-1 gap-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>

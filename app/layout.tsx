@@ -2,7 +2,6 @@ export const metadata = {
 	title: 'DYTOR — Stage Timer, Show Control & Remote Cues',
 	description: 'DYTOR is a professional stage timer and show-control platform with remote dashboards, role-based permissions, multi-screen display, and schedule automation.',
 	metadataBase: new URL('https://dytor.app/'),
-	themeColor: '#111827',
 	openGraph: {
 		type: 'website',
 		title: 'DYTOR — Stage Timer, Show Control & Remote Cues',
@@ -22,6 +21,10 @@ export const metadata = {
 		],
 		apple: [{ url: '/assets/Dytor_Icon_light_mode.png', sizes: '180x180' }]
 	}
+};
+
+export const viewport = {
+	themeColor: '#111827',
 };
 
 import './globals.css';
