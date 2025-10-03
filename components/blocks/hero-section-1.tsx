@@ -623,48 +623,15 @@ export function HeroSection() {
                         </div>
 
                         <div className="bg-background/50 backdrop-blur-lg border border-white/10 rounded-2xl p-6 md:p-10">
-                            <form name="contact" method="POST" className="grid grid-cols-1 gap-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                                        <input
-                                            id="name"
-                                            name="name"
-                                            required
-                                            className="w-full rounded-md border border-white/10 bg-background px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                                            placeholder="Jane Doe"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                                        <input
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            required
-                                            className="w-full rounded-md border border-white/10 bg-background px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                                            placeholder="jane@company.com"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        rows={5}
-                                        required
-                                        className="w-full rounded-md border border-white/10 bg-background px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                                        placeholder="Tell us about your event and what you need..."
-                                    />
-                                </div>
-                                <div className="flex items-center justify-between gap-4">
-                                    <p className="text-xs text-gray-500">We’ll never share your information.</p>
-                                    <Button type="submit" size="lg" className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
-                                        Send Message
+                            <div className="grid grid-cols-1 gap-6 text-center">
+                                <p className="text-gray-300">Prefer email? Reach us directly.</p>
+                                <div className="flex justify-center">
+                                    <Button asChild size="lg" className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
+                                        <a href="mailto:contact@dytor.app?subject=DYTOR%20Demo%20Request">Email Us</a>
                                     </Button>
                                 </div>
-                            </form>
+                                <p className="text-xs text-gray-500">We usually respond within one business day.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
