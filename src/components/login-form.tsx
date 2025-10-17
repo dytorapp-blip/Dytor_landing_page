@@ -26,7 +26,7 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6 mt-3", className)} {...props}>
-      <Card className="overflow-hidden p-0 w-[900px] mx-auto">
+      <Card className="overflow-hidden p-0 w-[900px] mx-auto bg-blue-950">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form className="p-6 md:p-8" onSubmit={onLogin}>
             <FieldGroup>
@@ -72,25 +72,19 @@ export function LoginForm({
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <EyeOff className="h-5 w-5" />
+                      <EyeOff className="h-5 w-5 hover:bg-blue-500" />
                     ) : (
-                      <Eye className="h-5 w-5" />
+                      <Eye className="h-5 w-5 hover:bg-blue-500" />
                     )}
                   </Button>
                 </div>
               </Field>
-              <Field className="grid grid-cols-3 gap-4">
+              <Field className="gap-4">
                 <Button type="submit" className="text-white">
                   Login
                 </Button>
-                <Button type="button" variant="outline" className="bg-yellow-500 text-black">
-                  Guest Login
-                </Button>
-                <Button type="button" variant="outline">
-                  Cancel
-                </Button>
               </Field>
-              <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
+              <FieldSeparator>
                 Or continue with
               </FieldSeparator>
               <Field className="grid grid-cols-3 gap-4">

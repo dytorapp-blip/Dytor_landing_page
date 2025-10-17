@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Eye, EyeOff } from "lucide-react"
 import React, { useState } from "react";
 
+
 export function SignupForm({
   className,
   onSwitchToLogin,
@@ -26,7 +27,7 @@ export function SignupForm({
 
   return (
     <div className={cn("flex flex-col gap-6 mt-8", className)} {...props}>
-      <Card className="overflow-hidden p-0 w-[900px] mx-auto">
+        <Card className="overflow-hidden p-0 w-[900px] mx-auto bg-blue-950">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form className="p-6 md:p-8" onSubmit={onSignup}>
             <FieldGroup>
@@ -111,7 +112,7 @@ export function SignupForm({
                   Create Account
                 </Button>
               </Field>
-              <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
+              <FieldSeparator>
                 Or continue with
               </FieldSeparator>
               <Field className="grid grid-cols-3 gap-4">
@@ -169,11 +170,11 @@ export function SignupForm({
             />
           </div>
         </CardContent>
-      </Card>
-      <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </FieldDescription>
+        </Card>
+        <FieldDescription className="px-6 text-center">
+         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+         and <a href="#">Privacy Policy</a>.
+        </FieldDescription>
     </div>
   )
 }

@@ -3,28 +3,28 @@
 import { useState } from "react";
 import { LoginForm } from "@/components/login-form";
 import { SignupForm } from "@/components/signup-form";
+import { HexagonBackground } from "@/components/ui/shadcn-io/hexagon-background"; // Import HexagonBackground
 
 export default function Home() {
-  const [showSignup, setShowSignup] = useState(false);
-
-  const handleLogin = (data: React.FormEvent<HTMLFormElement>) => {
-    console.log("Login data:", data);
-    // Handle login logic here
-  };
-
-  const handleSignup = (data: React.FormEvent<HTMLFormElement>) => {
-    console.log("Signup data:", data);
-    // Handle signup logic here
-    setShowSignup(false); // Go back to login after signup
-  };
+  const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      {showSignup ? (
-        <SignupForm onSignup={handleSignup} onSwitchToLogin={() => setShowSignup(false)} />
-      ) : (
-        <LoginForm onLogin={handleLogin} onSwitchToSignup={() => setShowSignup(true)} />
-      )}
+    <div className="relative h-screen w-full">
+      <HexagonBackground
+        hexagonSize={75}
+        hexagonMargin={3}
+        className="absolute inset-0"
+      >
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-center">
+            {showLogin ? (
+              <LoginForm onLogin={() => {}} onSwitchToSignup={() => setShowLogin(false)} />
+            ) : (
+              <SignupForm onSignup={() => {}} onSwitchToLogin={() => setShowLogin(true)} />
+            )}
+          </div>
+        </div>
+      </HexagonBackground>
     </div>
   );
 }
