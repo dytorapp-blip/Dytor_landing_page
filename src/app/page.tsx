@@ -7,12 +7,12 @@ import { SignupForm } from "@/components/signup-form";
 export default function Home() {
   const [showSignup, setShowSignup] = useState(false);
 
-  const handleLogin = (data: any) => {
+  const handleLogin = (data: React.FormEvent<HTMLFormElement>) => {
     console.log("Login data:", data);
     // Handle login logic here
   };
 
-  const handleSignup = (data: any) => {
+  const handleSignup = (data: React.FormEvent<HTMLFormElement>) => {
     console.log("Signup data:", data);
     // Handle signup logic here
     setShowSignup(false); // Go back to login after signup
@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       {showSignup ? (
-        <SignupForm onSignup={handleSignup} onShowLogin={() => setShowSignup(false)} />
+        <SignupForm onSignup={handleSignup} onSwitchToLogin={() => setShowSignup(false)} />
       ) : (
-        <LoginForm onLogin={handleLogin} onShowSignup={() => setShowSignup(true)} />
+        <LoginForm onLogin={handleLogin} onSwitchToSignup={() => setShowSignup(true)} />
       )}
     </div>
   );
