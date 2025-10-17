@@ -40,7 +40,7 @@ export function ScheduleSection() {
           <polyline points="12 6 12 12 16 14" />
         </svg>
         <p className="text-gray-400 text-sm mb-1">No scheduled events</p>
-        <p className="text-gray-500 text-xs">Use "Add to Schedule" to create events</p>
+        <p className="text-gray-500 text-xs">Use &quot;Add to Schedule&quot; to create events</p>
       </CardContent>
     </Card>
   );

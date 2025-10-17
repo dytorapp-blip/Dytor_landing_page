@@ -7,12 +7,12 @@ import { SignupForm } from "@/components/signup-form";
 export default function Home() {
   const [showSignup, setShowSignup] = useState(false);
 
-  const handleLogin = (data: any) => {
+  const handleLogin = (data: React.FormEvent<HTMLFormElement>) => {
     console.log("Login data:", data);
     // Handle login logic here
   };
 
-  const handleSignup = (data: any) => {
+  const handleSignup = (data: React.FormEvent<HTMLFormElement>) => {
     console.log("Signup data:", data);
     // Handle signup logic here
     setShowSignup(false); // Go back to login after signup

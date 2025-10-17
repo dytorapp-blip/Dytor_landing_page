@@ -1,3 +1,4 @@
+import Image from "next/image";
 "use client";
 
 import { cn } from "@/lib/utils"
@@ -160,9 +161,10 @@ export function SignupForm({
             </FieldGroup>
           </form>
           <div className="bg-muted relative">
-            <img
+            <Image
               src="/frame.png"
               alt="Image"
+              fill
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />
           </div>

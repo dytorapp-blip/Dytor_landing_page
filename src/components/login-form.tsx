@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -139,9 +140,10 @@ export function LoginForm({
             </FieldGroup>
           </form>
           <div className="bg-muted relative">
-            <img
+            <Image
               src="/lap.jpg"
               alt="Image"
+              fill
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
