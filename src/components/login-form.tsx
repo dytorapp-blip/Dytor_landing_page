@@ -78,9 +78,15 @@ export function LoginForm({
                   </Button>
                 </div>
               </Field>
-              <Field>
+              <Field className="grid grid-cols-3 gap-4">
                 <Button type="submit" className="text-white">
                   Login
+                </Button>
+                <Button type="button" variant="outline" className="bg-yellow-500 text-black">
+                  Guest Login
+                </Button>
+                <Button type="button" variant="outline">
+                  Cancel
                 </Button>
               </Field>
               <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
