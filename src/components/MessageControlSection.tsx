@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -15,11 +15,10 @@ export function MessageControlSection() {
       <CardContent className="space-y-4">
         <div>
           <label htmlFor="message" className="text-sm font-medium text-gray-400">Message</label>
-          <Input
+          <Textarea
             id="message"
             placeholder="Type your message here..."
             className="mt-1 bg-[#1A1C28] border-none text-white h-24 resize-none"
-            asChild
           />
         </div>
         <div className="flex items-center space-x-2">

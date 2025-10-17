@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       {showSignup ? (
-        <SignupForm onSignup={handleSignup} onShowLogin={() => setShowSignup(false)} />
+        <SignupForm onSignup={handleSignup} onSwitchToLogin={() => setShowSignup(false)} />
       ) : (
-        <LoginForm onLogin={handleLogin} onShowSignup={() => setShowSignup(true)} />
+        <LoginForm onLogin={handleLogin} onSwitchToSignup={() => setShowSignup(true)} />
       )}
     </div>
   );

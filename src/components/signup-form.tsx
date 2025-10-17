@@ -1,6 +1,6 @@
-import Image from "next/image";
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -13,14 +13,14 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Eye, EyeOff } from "lucide-react"
-
 import React, { useState } from "react";
 
 export function SignupForm({
   className,
   onSwitchToLogin,
+  onSignup,
   ...props
-}: React.ComponentProps<"div"> & { onSwitchToLogin: () => void }) {
+}: React.ComponentProps<"div"> & { onSwitchToLogin: () => void; onSignup: (e: React.FormEvent<HTMLFormElement>) => void; }) {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
@@ -28,7 +28,7 @@ export function SignupForm({
     <div className={cn("flex flex-col gap-6 mt-8", className)} {...props}>
       <Card className="overflow-hidden p-0 w-[900px] mx-auto">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form className="p-6 md:p-8" onSubmit={onSignup}>
             <FieldGroup>
               <div className="flex flex-col items-center gap-2 text-center">
                 <h1 className="text-2xl font-bold">Create your account</h1>
