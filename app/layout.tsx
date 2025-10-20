@@ -1,16 +1,18 @@
-export const metadata = {
-	title: 'DYTOR — Stage Timer, Show Control & Remote Cues',
+	import type { Metadata } from 'next';
+
+	export const metadata: Metadata = {
+		title: 'Dytor | Advanced Stage Timer, Cue Controller & Event Manager',
 	description: 'DYTOR is a professional stage timer and show-control platform with remote dashboards, role-based permissions, multi-screen display, and schedule automation.',
 	metadataBase: new URL('https://dytor.app/'),
 	openGraph: {
 		type: 'website',
-		title: 'DYTOR — Stage Timer, Show Control & Remote Cues',
+			title: 'Dytor | Advanced Stage Timer, Cue Controller & Event Manager',
 		description: 'Professional show control with precise timers, remote roles, multi-screen display, messages, schedules, and logs.',
 		images: ['/assets/Dytor_logo_name.png']
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'DYTOR — Stage Timer, Show Control & Remote Cues',
+			title: 'Dytor | Advanced Stage Timer, Cue Controller & Event Manager',
 		description: 'Professional show control with precise timers, remote roles, multi-screen display, messages, schedules, and logs.',
 		images: ['/assets/Dytor_logo_name.png']
 	},
@@ -50,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
 					"@context": "https://schema.org",
 					"@type": "SoftwareApplication",
-					"name": "DYTOR",
+					"name": "Dytor | Advanced Stage Timer, Cue Controller & Event Manager",
 					"applicationCategory": "BusinessApplication",
 					"operatingSystem": "Web, Windows, macOS, Linux",
 					"description": "Professional stage timer and show-control platform with remote dashboards, role-based permissions, multi-screen display, and schedule automation.",
