@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://dytor.app/docs</loc><lastmod>2025-10-20T16:13:37.651Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://dytor.app</loc><lastmod>2025-10-20T16:13:37.653Z</lastmod><changefreq>weekly</changefreq><priority>1</priority></url>
-<url><loc>https://dytor.app/about</loc><lastmod>2025-10-20T16:13:37.653Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://dytor.app/pricing</loc><lastmod>2025-10-20T16:13:37.653Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://dytor.app/features</loc><lastmod>2025-10-20T16:13:37.653Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://dytor.app/use-cases</loc><lastmod>2025-10-20T16:13:37.653Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/docs</loc><lastmod>2025-10-20T18:02:08.228Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/about</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/pricing</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/features</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/blog/robots.txt</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/blog/rss</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/blog</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>1</priority></url>
+<url><loc>https://dytor.app/blog/sitemap.xml</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/use-cases</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://dytor.app/blog/hello-dytor</loc><lastmod>2025-10-20T18:02:08.229Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
