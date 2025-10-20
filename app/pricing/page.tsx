@@ -1,4 +1,5 @@
-'use client';
+"use client";
+// Metadata exports are not allowed in client components; relying on DefaultSeo
 
 import React from 'react';
 import Link from 'next/link';
@@ -163,6 +164,10 @@ export default function PricingPage() {
     return (
         <BeamsBackground intensity="medium" className="min-h-screen">
             <main className="overflow-hidden">
+                <header className="sr-only">
+                    <h1>Pricing</h1>
+                    <p>Plans and pricing for DYTOR show control software.</p>
+                </header>
                 {/* Hero Section */}
                 <section className="pt-24 md:pt-36 pb-16">
                     <div className="mx-auto max-w-7xl px-6">

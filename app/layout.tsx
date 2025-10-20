@@ -31,14 +31,18 @@ import './globals.css';
 import Script from 'next/script';
 import { Navbar } from '@/components/blocks/navbar';
 import { Footer } from '@/components/blocks/footer';
+ 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<head>
+				{/* next-seo default config for App Router */}
+				<link rel="manifest" href="/site.webmanifest" />
 				<link rel="canonical" href="https://dytor.app/" />
 				<link rel="icon" href="/assets/Dytor_Icon_light_mode.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" />
 				<link rel="icon" href="/assets/Dytor_icon_dark_mode.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+				<meta name="theme-color" content="#111827" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 				<link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
@@ -56,6 +60,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				})}} />
 			</head>
 			<body className="min-h-screen">
+				<Script
+					src="https://plausible.io/js/script.js"
+					data-domain="dytor.app"
+					strategy="afterInteractive"
+				/>
 				<Navbar />
 				{children}
 				<Footer />

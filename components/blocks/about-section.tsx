@@ -6,7 +6,8 @@ import Image from 'next/image'
 import { ArrowRight, ChevronRight, Menu, X, Users, Target, Zap, Globe, Award, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
-import { BeamsBackground } from '@/components/ui/beams-background'
+import dynamic from 'next/dynamic'
+const BeamsBackground = dynamic(() => import('@/components/ui/beams-background').then(m => m.BeamsBackground), { ssr: false })
 import { cn } from '@/lib/utils'
 
 const transitionVariants = {

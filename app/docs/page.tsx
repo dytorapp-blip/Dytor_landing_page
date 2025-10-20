@@ -1,4 +1,5 @@
-'use client'
+"use client"
+// Metadata exports are not allowed in client components; relying on DefaultSeo
 
 import React from 'react'
 import Link from 'next/link'
