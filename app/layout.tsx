@@ -1,7 +1,7 @@
 	import type { Metadata } from 'next';
 
 	export const metadata: Metadata = {
-		title: 'Dytor Pro | Professional Stage Timer & Event Management Software | Free Trial',
+		title: 'Dytor | Professional Stage Timer & Event Management Software | Free Trial',
 		description: 'Professional stage timer software with real-time sync, role-based access, and event management. Trusted by production teams worldwide. Start your free trial today.',
 		keywords: [
 			'stage timer software',
@@ -42,7 +42,7 @@
 		type: 'website',
 			locale: 'en_US',
 			url: 'https://dytor.app/',
-			siteName: 'Dytor Pro',
+			siteName: 'Dytor',
 			title: 'Dytor Pro - Professional Stage Timer & Event Management Software',
 			description: 'Professional stage timer software with real-time sync, role-based access, and event management. Trusted by production teams worldwide.',
 			images: [
@@ -50,7 +50,7 @@
 					url: '/assets/Dytor_logo_name.png',
 					width: 1200,
 					height: 630,
-					alt: 'Dytor Pro - Professional Stage Timer Software',
+					alt: 'Dytor - Professional Stage Timer Software',
 				}
 			]
 	},
@@ -58,7 +58,7 @@
 		card: 'summary_large_image',
 			site: '@DytorApp',
 			creator: '@DytorApp',
-			title: 'Dytor Pro | Professional Stage Timer & Event Management Software',
+			title: 'Dytor | Professional Stage Timer & Event Management Software',
 			description: 'Professional stage timer software with real-time sync, role-based access, and event management. Trusted by production teams worldwide.',
 		images: ['/assets/Dytor_logo_name.png']
 	},

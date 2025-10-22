@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://dytor.app/',
   },
+  icons: {
+    icon: '/Dytor icon.ico'
+  },
 };
 
 export default function HomePage() {
