@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     canonical: 'https://dytor.app/',
   },
   icons: {
-    icon: '/Dytor icon.ico'
+    icon: '/assets/Dytor_icon.ico'
   },
 };
 
