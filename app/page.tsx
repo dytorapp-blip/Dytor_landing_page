@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: 'Dytor Pro | Professional Stage Timer & Event Management Software | Free Trial',
+  title: 'Dytor | Professional Stage Timer & Event Management Software | Free Trial',
   description: 'Professional stage timer software with real-time sync, role-based access, and event management. Trusted by production teams worldwide. Start your free trial today.',
   keywords: [
     'stage timer software',
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     'event coordination'
   ],
   openGraph: {
-    title: 'Dytor Pro | Professional Stage Timer & Event Management Software',
+    title: 'Dytor | Professional Stage Timer & Event Management Software',
     description: 'Professional stage timer software with real-time sync, role-based access, and event management. Trusted by production teams worldwide.',
     images: ['/assets/Dytor_logo_name.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dytor Pro |  Professional Stage Timer & Event Management Software',
+    title: 'Dytor |  Professional Stage Timer & Event Management Software',
     description: 'Professional stage timer software with real-time sync, role-based access, and event management.',
     images: ['/assets/Dytor_logo_name.png'],
   },
@@ -49,7 +49,7 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Dytor Pro",
+            name: "Dytor",
             description: "Professional stage timer software with real-time sync, role-based access, and event management. Trusted by production teams worldwide.",
             brand: {
               "@type": "Organization",
