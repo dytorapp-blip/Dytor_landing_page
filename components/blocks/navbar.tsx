@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { NavbarFluidGlass } from '@/components/ui/NavbarFluidGlass'
 
 type MenuItem = { name: string; href: string }
 
@@ -52,7 +53,8 @@ export const Navbar = React.memo(function Navbar() {
   return (
     <header>
       <nav data-state={menuState && 'active'} className="fixed z-20 w-full px-2 group">
-        <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5')}>
+        <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/30 max-w-4xl rounded-2xl backdrop-blur-lg lg:px-5 relative overflow-hidden')}>
+          {isScrolled && <NavbarFluidGlass className="rounded-2xl" />}
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full justify-between lg:w-auto">
               <Link href="/" aria-label="home" className="flex items-center space-x-2">
