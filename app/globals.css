@@ -7,7 +7,8 @@
   --color-dark-bg: #111827;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Optimized Google Fonts with font-display: swap */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 :root {
 	--electric-cyan: #3B82F6; /* primary */
@@ -27,6 +28,17 @@ body {
 	overflow-x: hidden;
 }
 
+/* Performance optimizations */
+* {
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -40,11 +52,33 @@ body {
 	border-radius: 10px;
 }
 
-
-html { scroll-behavior: smooth; }
+/* Smooth scrolling with reduced motion support */
+html { 
+	scroll-behavior: smooth; 
+}
 
 @media (prefers-reduced-motion: reduce) {
-	* { animation: none !important; transition: none !important; }
+	* { 
+		animation: none !important; 
+		transition: none !important; 
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+	outline: 2px solid var(--electric-cyan);
+	outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+	* {
+		background: transparent !important;
+		color: black !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
 }
 
 

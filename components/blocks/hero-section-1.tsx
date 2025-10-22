@@ -50,16 +50,16 @@ export function HeroSection() {
                                 <div className="flex flex-col justify-center items-center md:items-start space-y-8 text-center md:text-left">
                                 <AnimatedGroup variants={transitionVariants}>
                                         <h1
-                                            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                                            <div className="text-white dark:text-white">
-                                                Professional Show Control<br />
-                                                & Stage Management
+                                            className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                                            <div className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                                                Professional Stage Timer Software<br />
+                                                & Event Management Platform
                                             </div>
                                     </h1>
                                     <p
                                             className="mt-8 max-w-2xl text-sm md:text-base text-gray-200 dark:text-gray-200 leading-relaxed">
-                                            Control your event timing, schedule<br />
-                                            and communications from anywhere.
+                                            Professional stage timer software with real-time synchronization,<br />
+                                            role-based access control, and comprehensive event management tools.
                                     </p>
                                 </AnimatedGroup>
 
@@ -103,7 +103,7 @@ export function HeroSection() {
                                 {/* Trust Badge */}
                                 <div className="mt-6">
                                     <p className="text-base text-gray-300 dark:text-gray-300">
-                                        Trusted by event managers, stage directors, and conference organizers worldwide
+                                        Trusted by event managers, stage directors, conference organizers, and production teams worldwide
                                     </p>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@ export function HeroSection() {
                                 <div className="flex items-start justify-center lg:justify-end mt-6 md:-mt-16 pt-4">
                                     <Image
                                         src="/assets/hero section.png"
-                                        alt="DYTOR Professional Show Control Interface"
+                                        alt="Dytor Pro Professional Stage Timer Software Interface - Real-time Event Management Dashboard"
                                         width={1200}
                                         height={900}
                                         className="w-full h-auto max-w-5xl shadow-2xl"
@@ -133,7 +133,7 @@ export function HeroSection() {
                             <div className="flex items-center justify-center lg:justify-start">
                                 <Image
                                     src="/assets/control.png"
-                                    alt="Dual Timer System Interface"
+                                    alt="Dytor Pro Dual Timer System Interface - Professional Stage Timer Controls"
                                     width={600}
                                     height={400}
                                     className="w-full h-auto max-w-lg shadow-2xl"
@@ -200,7 +200,7 @@ export function HeroSection() {
                             <div className="flex items-center justify-center lg:justify-end">
                                 <Image
                                     src="/assets/Event Scheduling.png"
-                                    alt="Event Scheduling Interface"
+                                    alt="Dytor Pro Event Scheduling Interface - Professional Event Management Dashboard"
                                     width={600}
                                     height={400}
                                     className="w-full h-auto max-w-lg shadow-2xl"

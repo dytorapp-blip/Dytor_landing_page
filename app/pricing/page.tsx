@@ -1,14 +1,42 @@
-"use client";
-// Metadata exports are not allowed in client components; relying on DefaultSeo
-
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Check, ArrowRight, Star, Zap, Shield, Users, Clock, MessageSquare, Calendar, Download, Globe, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { BeamsBackground } from '@/components/ui/beams-background';
+import { Breadcrumbs, BreadcrumbSchema } from '@/components/ui/breadcrumbs';
 import { cn } from '@/lib/utils';
+
+export const metadata: Metadata = {
+  title: 'Pricing Plans - Dytor Pro Stage Timer Software | Free Trial Available',
+  description: 'Choose the perfect Dytor Pro plan for your event management needs. Free starter plan available. Professional plans start at $12/month. No setup fees, cancel anytime.',
+  keywords: [
+    'stage timer pricing',
+    'event management software cost',
+    'show control software plans',
+    'production timer pricing',
+    'stage manager software cost',
+    'event timer subscription',
+    'conference management pricing',
+    'live event software plans'
+  ],
+  openGraph: {
+    title: 'Pricing Plans - Dytor Pro Stage Timer Software',
+    description: 'Choose the perfect Dytor Pro plan for your event management needs. Free starter plan available. Professional plans start at $12/month.',
+    images: ['/assets/Dytor_logo_name.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pricing Plans - Dytor Pro Stage Timer Software',
+    description: 'Choose the perfect Dytor Pro plan for your event management needs. Free starter plan available.',
+    images: ['/assets/Dytor_logo_name.png'],
+  },
+  alternates: {
+    canonical: 'https://dytor.app/pricing',
+  },
+};
 
 const transitionVariants = {
     item: {
@@ -161,15 +189,28 @@ const faqs = [
 ];
 
 export default function PricingPage() {
+    const breadcrumbItems = [
+        { label: 'Pricing', href: '/pricing' }
+    ];
+
     return (
         <BeamsBackground intensity="medium" className="min-h-screen">
+            <BreadcrumbSchema items={breadcrumbItems} />
             <main className="overflow-hidden">
                 <header className="sr-only">
                     <h1>Pricing</h1>
                     <p>Plans and pricing for DYTOR show control software.</p>
                 </header>
+                
+                {/* Breadcrumbs */}
+                <div className="pt-20 pb-4">
+                    <div className="mx-auto max-w-7xl px-6">
+                        <Breadcrumbs items={breadcrumbItems} />
+                    </div>
+                </div>
+                
                 {/* Hero Section */}
-                <section className="pt-24 md:pt-36 pb-16">
+                <section className="pt-8 pb-16">
                     <div className="mx-auto max-w-7xl px-6">
                         <AnimatedGroup variants={transitionVariants}>
                             <div className="text-center mb-16">

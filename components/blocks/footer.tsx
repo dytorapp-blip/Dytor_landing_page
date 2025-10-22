@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Github, Twitter, Linkedin } from "lucide-react";
 
@@ -12,7 +13,14 @@ export function Footer({ className }: { className?: string }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2">
-              <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">DYTOR</span>
+              <Image
+                src="/assets/Dytor_logo_name.png"
+                alt="DYTOR Logo"
+                width={120}
+                height={40}
+                className="h-8 w-auto"
+                priority
+              />
             </Link>
             <p className="mt-4 text-gray-300 max-w-xs leading-relaxed">
               Professional show control and stage management for live events, conferences, and theatrical productions.
