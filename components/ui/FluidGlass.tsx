@@ -172,13 +172,13 @@ const LiquidGlassMaterial = React.forwardRef<any, any>(({
     }
   });
 
-  return <meshStandardMaterial ref={ref} {...props} args={[]} material={material} />;
+  return <primitive object={material} ref={ref} attach="material" {...props} />
 });
 
 // Lens Component
 const Lens = ({ scale = 0.25, ...props }: any) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
@@ -197,7 +197,7 @@ const Lens = ({ scale = 0.25, ...props }: any) => {
 // Bar Component
 const Bar = ({ scale = 0.25, ...props }: any) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.2;
@@ -216,7 +216,7 @@ const Bar = ({ scale = 0.25, ...props }: any) => {
 // Cube Component
 const Cube = ({ scale = 0.25, ...props }: any) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
@@ -264,9 +264,9 @@ export const FluidGlass: React.FC<FluidGlassProps> = ({
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <pointLight position={[-5, -5, -5]} intensity={0.5} />
-        
+
         {renderComponent()}
-        
+
         <Environment preset="studio" />
       </Canvas>
     </div>
