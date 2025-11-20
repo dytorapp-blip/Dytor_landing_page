@@ -6,7 +6,7 @@ import { OrbitControls, Environment, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface FluidGlassProps {
-  mode?: 'lens' | 'bar' | 'cube';
+  mode?: 'lens' | 'bar' | 'cube' | 'plane';
   lensProps?: {
     scale?: number;
     ior?: number;
@@ -22,6 +22,13 @@ interface FluidGlassProps {
     anisotropy?: number;
   };
   cubeProps?: {
+    scale?: number;
+    ior?: number;
+    thickness?: number;
+    chromaticAberration?: number;
+    anisotropy?: number;
+  };
+  planeProps?: {
     scale?: number;
     ior?: number;
     thickness?: number;
@@ -233,12 +240,25 @@ const Cube = ({ scale = 0.25, ...props }: any) => {
   );
 };
 
+// Plane Component
+const Plane = ({ scale = 1, ...props }: any) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  return (
+    <mesh ref={meshRef} scale={scale}>
+      <planeGeometry args={[10, 10]} />
+      <LiquidGlassMaterial {...props} />
+    </mesh>
+  );
+};
+
 // Main FluidGlass Component
 export const FluidGlass: React.FC<FluidGlassProps> = ({
   mode = 'lens',
   lensProps = {},
   barProps = {},
   cubeProps = {},
+  planeProps = {},
   className = '',
   style = {}
 }) => {
@@ -250,6 +270,8 @@ export const FluidGlass: React.FC<FluidGlassProps> = ({
         return <Bar {...barProps} />;
       case 'cube':
         return <Cube {...cubeProps} />;
+      case 'plane':
+        return <Plane {...planeProps} />;
       default:
         return <Lens {...lensProps} />;
     }

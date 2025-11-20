@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Mail, Twitter, Linkedin } from "lucide-react";
 
 export function Footer({ className }: { className?: string }) {
   const year = new Date().getFullYear();
@@ -26,13 +26,13 @@ export function Footer({ className }: { className?: string }) {
               Professional show control and stage management for live events, conferences, and theatrical productions.
             </p>
             <div className="mt-6 flex items-center gap-4">
-              <Link aria-label="GitHub" href="https://github.com" target="_blank" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                <Github className="h-5 w-5" />
+              <Link aria-label="Email" href="mailto:dytor.app@gmail.com" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Mail className="h-5 w-5" />
               </Link>
-              <Link aria-label="Twitter" href="https://twitter.com" target="_blank" className="text-gray-400 hover:text-cyan-400 transition-colors">
+              <Link aria-label="X (formerly Twitter)" href="https://x.com/dytorapp" target="_blank" className="text-gray-400 hover:text-cyan-400 transition-colors">
                 <Twitter className="h-5 w-5" />
               </Link>
-              <Link aria-label="LinkedIn" href="https://linkedin.com" target="_blank" className="text-gray-400 hover:text-cyan-400 transition-colors">
+              <Link aria-label="LinkedIn" href="https://www.linkedin.com/company/dytor/" target="_blank" className="text-gray-400 hover:text-cyan-400 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Link>
             </div>
