@@ -93,7 +93,7 @@ import './globals.css';
 import Script from 'next/script';
 import { Navbar } from '@/components/blocks/navbar';
 import { Footer } from '@/components/blocks/footer';
- 
+import GoogleAnalytics from './GoogleAnalytics';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -296,6 +296,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Navbar />
 				{children}
 				<Footer />
+				<GoogleAnalytics />
 			</body>
 		</html>
 	);
