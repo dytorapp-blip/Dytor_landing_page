@@ -1,14 +1,15 @@
 'use client';
 
-import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Check, Loader2 } from 'lucide-react';
+import { useRef,useState } from 'react';
+
 import { Button } from '@/components/ui/button';
 import Earth from '@/components/ui/globe';
-import { SparklesCore } from '@/components/ui/sparkles';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Check, Loader2 } from 'lucide-react';
+import { SparklesCore } from '@/components/ui/sparkles';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function ContactUs1() {
   const [name, setName] = useState('');

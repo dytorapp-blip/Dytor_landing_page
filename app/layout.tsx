@@ -3,10 +3,10 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/contexts/theme-provider";
-import { inter } from "@/lib/fonts";
-import NavbarDemo from "@/components/sections/navbar/default";
 import Footer from "@/components/sections/footer/default";
+import NavbarDemo from "@/components/sections/navbar/default";
 import { LayoutLines } from "@/components/ui/layout-lines";
+import { inter } from "@/lib/fonts";
 
 import { siteConfig } from "../config/site";
 

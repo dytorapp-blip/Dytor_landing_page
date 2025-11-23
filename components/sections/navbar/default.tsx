@@ -1,15 +1,16 @@
 "use client";
 import React, { useState } from "react";
+
 import {
-  Navbar,
-  NavBody,
-  NavItems,
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
-  NavbarLogo,
+  Navbar,
   NavbarButton,
+  NavbarLogo,
+  NavBody,
+  NavItems,
 } from "@/components/ui/resizable-navbar";
 
 const navItems = [

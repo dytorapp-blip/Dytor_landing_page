@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
 import createGlobe from 'cobe';
+import React, { useEffect, useRef } from 'react';
+
 import { cn } from '@/lib/utils';
 
 interface EarthProps {
@@ -58,7 +59,7 @@ const Earth: React.FC<EarthProps> = ({
       markers: [
         // longitude latitude
       ],
-      onRender: (state: Record<string, any>) => {
+      onRender: (state: { phi: number }) => {
         // Called on every animation frame.
         // `state` will be an empty object, return updated params.\
         state.phi = phi;
@@ -69,7 +70,17 @@ const Earth: React.FC<EarthProps> = ({
     return () => {
       globe.destroy();
     };
-  }, [dark]);
+  }, [
+    dark,
+    theta,
+    scale,
+    diffuse,
+    mapSamples,
+    mapBrightness,
+    baseColor,
+    markerColor,
+    glowColor,
+  ]);
 
   return (
     <div

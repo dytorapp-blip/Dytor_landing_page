@@ -6,15 +6,13 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import Github from "../../logos/github";
+import X from "../../logos/x"
 import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
 import Glow from "../../ui/glow";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import Screenshot from "../../ui/screenshot";
 import { Section } from "../../ui/section";
-import LiquidGlass from 'liquid-glass-react'
-import X from "../../logos/x"
 
 interface HeroButtonProps {
   href: string;
@@ -81,7 +79,7 @@ export default function Hero({
     >
       <div className="max-w-container mx-auto flex flex-col gap-12 pt-8 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
-          {/* {badge !== false && badge} */}
+          {badge !== false && badge}
           <h3 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
             {title}
           </h3>

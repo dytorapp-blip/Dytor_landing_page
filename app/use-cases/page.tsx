@@ -1,9 +1,7 @@
-import { ArrowRight, Disc } from "lucide-react";
+import { IconCircleDashedCheck } from '@tabler/icons-react';
 import Image from "next/image";
 import { FC } from "react";
-import { Time } from "@/components/icons/time";
-import { IconCircleDashedCheck } from '@tabler/icons-react';
-import { Button } from "@/components/ui/button";
+
 
 interface UseCase {
   title: string;

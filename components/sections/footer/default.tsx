@@ -1,9 +1,9 @@
+import Image from "next/image";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import LaunchUI from "../../logos/launch-ui";
+
 import {
   Footer,
   FooterBottom,
