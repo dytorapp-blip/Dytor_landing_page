@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import Countdown from "@/components/ui/countdown";
 import {
   Dialog,
   DialogContent,
@@ -9,8 +12,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import Countdown from "@/components/ui/countdown";
-import { Button } from "@/components/ui/button";
 
 interface CountdownModalTriggerProps {
   releaseDate: string;
