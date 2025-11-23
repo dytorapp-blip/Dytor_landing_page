@@ -1,3 +1,4 @@
+import { ImageProps } from "next/image";
 import React from "react";
 
 import { cn } from "@/lib/utils";
@@ -5,7 +6,9 @@ import { cn } from "@/lib/utils";
 import { Badge } from "./badge";
 
 export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
-  image: React.ComponentType<any>;
+  image:
+    | React.ComponentType<Partial<ImageProps>>
+    | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   name: string;
   version?: string;
   width?: number;

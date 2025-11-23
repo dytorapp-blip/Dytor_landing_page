@@ -59,7 +59,8 @@ const Earth: React.FC<EarthProps> = ({
       markers: [
         // longitude latitude
       ],
-      onRender: (state: { phi: number }) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onRender: (state: any) => {
         // Called on every animation frame.
         // `state` will be an empty object, return updated params.\
         state.phi = phi;
