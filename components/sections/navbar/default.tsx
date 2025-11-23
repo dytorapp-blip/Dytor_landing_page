@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
+import CountdownModalTrigger from "@/components/ui/countdown-modal-trigger";
 import {
   MobileNav,
   MobileNavHeader,
@@ -34,9 +35,11 @@ export default function HeaderResizable() {
           <a href="/signin" className="text-foreground/80 hover:text-foreground">
             {/* Sign In */}
           </a>
-          <NavbarButton href="/get-started" variant="gradient">
-            Download
-          </NavbarButton>
+          <CountdownModalTrigger releaseDate="2025-11-25T12:00:00">
+            <NavbarButton variant="gradient">
+              Download
+            </NavbarButton>
+          </CountdownModalTrigger>
         </div>
       </NavBody>
 
@@ -64,9 +67,11 @@ export default function HeaderResizable() {
           </div>
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
-              <NavbarButton href="/get-started" variant="gradient">
-                Download
-              </NavbarButton>
+              <CountdownModalTrigger releaseDate="2025-11-25T12:00:00">
+                <NavbarButton variant="gradient">
+                  Download
+                </NavbarButton>
+              </CountdownModalTrigger>
             </div>
           </div>
         </MobileNavMenu>

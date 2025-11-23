@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import X from "../../logos/x"
 import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
+import CountdownModalTrigger from "../../ui/countdown-modal-trigger";
 import Glow from "../../ui/glow";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import Screenshot from "../../ui/screenshot";
@@ -88,20 +89,39 @@ export default function Hero({
           </p>
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
-              {buttons.map((button, index) => (
-                <Button
-                  key={index}
-                  variant={button.variant || "default"}
-                  size="lg"
-                  asChild
-                >
-                  <a href={button.href}>
-                    {button.icon}
-                    {button.text}
-                    {button.iconRight}
-                  </a>
-                </Button>
-              ))}
+              {buttons.map((button, index) => {
+                if (button.text === "Get Started") {
+                  return (
+                    <CountdownModalTrigger
+                      key={index}
+                      releaseDate="2025-11-25T12:00:00"
+                    >
+                      <Button
+                        variant={button.variant || "default"}
+                        size="lg"
+                      >
+                        {button.icon}
+                        {button.text}
+                        {button.iconRight}
+                      </Button>
+                    </CountdownModalTrigger>
+                  );
+                }
+                return (
+                  <Button
+                    key={index}
+                    variant={button.variant || "default"}
+                    size="lg"
+                    asChild
+                  >
+                    <a href={button.href}>
+                      {button.icon}
+                      {button.text}
+                      {button.iconRight}
+                    </a>
+                  </Button>
+                );
+              })}
             </div>
           )}
           {mockup !== false && (
