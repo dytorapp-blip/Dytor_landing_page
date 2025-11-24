@@ -47,9 +47,9 @@ export default function FooterSection({
     {
       title: "Contact",
       links: [
-        { text: "X.com", href: "https://x.com/dytorapp" },
-        { text: "Instagram", href: "https://www.instagram.com/dytorapp/" },
-        { text: "Mail", href: "mailto:dytor.app@gmail.com" },
+        { text: "X.com", href: "https://x.com/dytorapp", "aria-label": "Visit our X.com page" },
+        { text: "Instagram", href: "https://www.instagram.com/dytorapp/", "aria-label": "Visit our Instagram page" },
+        { text: "Mail", href: "mailto:dytor.app@gmail.com", "aria-label": "Send us an email" },
       ],
     },
   ],

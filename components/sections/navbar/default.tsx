@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/resizable-navbar";
 
 const navItems = [
-  { name: "Use Cases", link: "/use-cases" },
-  { name: "Contact", link: "/contact" },
+  { name: "Use Cases", link: "/use-cases", "aria-label": "View our use cases" },
+  { name: "Contact", link: "/contact", "aria-label": "Contact us" },
 ];
 
 export default function HeaderResizable() {
@@ -36,7 +36,7 @@ export default function HeaderResizable() {
             {/* Sign In */}
           </a>
           <CountdownModalTrigger releaseDate="2025-11-25T12:00:00">
-            <NavbarButton variant="gradient">
+            <NavbarButton variant="gradient" aria-label="Download the application">
               Download
             </NavbarButton>
           </CountdownModalTrigger>
@@ -60,6 +60,7 @@ export default function HeaderResizable() {
                 href={item.link}
                 className="px-4 py-2 text-neutral-600 dark:text-neutral-300"
                 onClick={() => setIsOpen(false)}
+                aria-label={item['aria-label']}
               >
                 {item.name}
               </a>
@@ -68,7 +69,7 @@ export default function HeaderResizable() {
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
               <CountdownModalTrigger releaseDate="2025-11-25T12:00:00">
-                <NavbarButton variant="gradient">
+                <NavbarButton variant="gradient" aria-label="Download the application">
                   Download
                 </NavbarButton>
               </CountdownModalTrigger>

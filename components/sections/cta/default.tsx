@@ -27,7 +27,7 @@ export default function CTA({
   title = "Get DYTOR",
   buttons = [
     {
-      href: siteConfig.getStartedUrl,
+      href: siteConfig.url,
       text: "Download",
       variant: "default",
     },

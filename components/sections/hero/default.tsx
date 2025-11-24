@@ -50,7 +50,7 @@ export default function Hero({
       <span className="text-muted-foreground">
         New version of DYTOR is out!
       </span>
-      <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
+      <a href={siteConfig.url} className="flex items-center gap-1">
         Get started
         <ArrowRightIcon className="size-3" />
       </a>
@@ -58,15 +58,17 @@ export default function Hero({
   ),
   buttons = [
     {
-      href: siteConfig.getStartedUrl,
+      href: siteConfig.url,
       text: "Get Started",
       variant: "default",
+      "aria-label": "Get started with Dytor",
     },
     {
       href: siteConfig.links.x,
       text: "(Twitter)",
       variant: "glow",
       icon: <X className="mr-2 size-4" />,
+      "aria-label": "Visit our Twitter page",
     },
   ],
   className,
