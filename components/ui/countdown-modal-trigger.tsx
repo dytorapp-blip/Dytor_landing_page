@@ -35,8 +35,7 @@ const CountdownModalTrigger: React.FC<CountdownModalTriggerProps> = ({
         <DialogHeader>
           <DialogTitle>Coming Soon!</DialogTitle>
           <DialogDescription>
-            We are working hard to bring you this file. The download will be
-            available on {new Date(releaseDate).toLocaleString()}.
+            Dytor is on the way, stay tuned {new Date(releaseDate).toLocaleString()}.
           </DialogDescription>
         </DialogHeader>
         <div className="py-8">

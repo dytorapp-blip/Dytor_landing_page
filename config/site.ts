@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "DYTOR",
   url: "https://dytor.app",
-  getStartedUrl:
-    "https://launchuicomponents.com/docs/getting-started/introduction",
-  ogImage: "https://launchuicomponents.com/og.jpg",
+
+
+
   description:
     "Landing page components built with React, Shadcn/ui and Tailwind that will make your website feel premium.",
   links: {

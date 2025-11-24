@@ -7,7 +7,7 @@ A comprehensive collection of production-ready website components built with Nex
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
 [![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-black)](https://ui.shadcn.com/)
 
-<img src="https://launchuicomponents.com/preview.gif" alt="Launch UI components mockups" />
+
 
 > [!TIP]
 > **Tailwind v4 + React 19:**
@@ -30,8 +30,8 @@ npm run dev
 
 ## 📚 Resources
 
-- [Live Preview](https://launchuicomponents.com/preview)
-- [Documentation](https://www.launchuicomponents.com/docs/getting-started/introduction)
+
+
 
 ## ✨ Features
 
@@ -55,7 +55,7 @@ npm run dev
 - **CTA**: Powerful call-to-action component with multiple styles including box layouts and beam effects. Designed to create compelling sections that drive user engagement
 - **Footer**: Versatile footer with multiple layout variants including default, minimal, and multi-column styles. Perfect for organizing site information and links
 
-### In [Pro version](https://launchuicomponents.com/pricing)
+
 
 - **Bento Grid**: Advanced masonry-style grid system for creating visually appealing content arrangements. Perfect for showcasing features, products, or content in an elegant, card-based layout
 - **Feature**: Sophisticated feature showcase with flexible illustration placements and mockup displays. Includes multiple layout options while maintaining shadcn's consistent design language
@@ -92,8 +92,4 @@ This repository is licensed under the [MIT License](https://github.com/launch-ui
 
 ---
 
-<p align="center">
-  <a href="https://launchuicomponents.com">Website</a> •
-  <a href="https://launchuicomponents.com/docs">Documentation</a> •
-  <a href="https://launchuicomponents.com/preview">Preview</a>
-</p>
+
