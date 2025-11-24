@@ -15,6 +15,7 @@ import { ModeToggle } from "../../ui/mode-toggle";
 interface FooterLink {
   text: string;
   href: string;
+  aria-label?: string;
 }
 
 interface FooterColumnProps {

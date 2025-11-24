@@ -15,6 +15,7 @@ interface CTAButtonProps {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   icon?: ReactNode;
   iconRight?: ReactNode;
+  "aria-label"?: string;
 }
 
 interface CTAProps {
