@@ -42,7 +42,9 @@ const CountdownModalTrigger: React.FC<CountdownModalTriggerProps> = ({
           {isCountdownFinished ? (
             <div className="flex flex-col items-center justify-center space-y-4">
               <h3 className="text-2xl font-bold">The wait is over!</h3>
-              <Button aria-label="Download the application">Download Now</Button>
+              <Button asChild aria-label="Download the application">
+    <a href="/download">Download Now</a>
+</Button>
             </div>
           ) : (
             <Countdown

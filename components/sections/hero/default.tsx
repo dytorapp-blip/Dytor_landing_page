@@ -51,7 +51,7 @@ export default function Hero({
       <span className="text-muted-foreground">
         New version of DYTOR is out!
       </span>
-      <a href={siteConfig.url} className="flex items-center gap-1">
+      <a href="/download" className="flex items-center gap-1">
         Get started
         <ArrowRightIcon className="size-3" />
       </a>
@@ -59,7 +59,7 @@ export default function Hero({
   ),
   buttons = [
     {
-      href: siteConfig.url,
+      href: "/download",
       text: "Get Started",
       variant: "default",
       "aria-label": "Get started with Dytor",
@@ -83,7 +83,7 @@ export default function Hero({
     >
       <div className="max-w-container mx-auto flex flex-col gap-12 pt-8 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
-          {badge !== false && badge}
+          {/* {badge !== false && badge} */}
           <h3 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
             {title}
           </h3>
@@ -93,23 +93,6 @@ export default function Hero({
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button, index) => {
-                if (button.text === "Get Started") {
-                  return (
-                    <CountdownModalTrigger
-                      key={index}
-                      releaseDate="2025-11-25T12:00:00"
-                    >
-                      <Button
-                        variant={button.variant || "default"}
-                        size="lg"
-                      >
-                        {button.icon}
-                        {button.text}
-                        {button.iconRight}
-                      </Button>
-                    </CountdownModalTrigger>
-                  );
-                }
                 return (
                   <Button
                     key={index}

@@ -25,8 +25,11 @@ export default function HeaderResizable() {
   return (
     <Navbar>
       <NavBody>
-        <div className="flex items-center">
+          <div className="flex items-center gap-2">
           <NavbarLogo />
+          <div className="ml-4 hidden lg:block">
+            {/* Optional extras like date, buttons, or status can go here */}
+          </div>
         </div>
 
         <NavItems items={navItems} onItemClick={() => setIsOpen(false)} />
@@ -35,11 +38,9 @@ export default function HeaderResizable() {
           <a href="/signin" className="text-foreground/80 hover:text-foreground">
             {/* Sign In */}
           </a>
-          <CountdownModalTrigger releaseDate="2025-11-25T12:00:00">
-            <NavbarButton variant="gradient" aria-label="Download the application">
-              Download
-            </NavbarButton>
-          </CountdownModalTrigger>
+<NavbarButton variant="gradient" href="/download" aria-label="Download the application">
+    Download
+</NavbarButton>
         </div>
       </NavBody>
 
@@ -48,6 +49,7 @@ export default function HeaderResizable() {
         <MobileNavHeader>
           <NavbarLogo />
           <div className="flex items-center gap-3">
+            {/* Mobile-only extras */}
             <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
           </div>
         </MobileNavHeader>
@@ -68,13 +70,10 @@ export default function HeaderResizable() {
           </div>
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
-              <CountdownModalTrigger releaseDate="2025-11-25T12:00:00">
-                <NavbarButton variant="gradient" aria-label="Download the application">
-                  Download
+                <NavbarButton variant="gradient" href="/download" aria-label="Download the application">
+                    Download
                 </NavbarButton>
-              </CountdownModalTrigger>
-            </div>
-          </div>
+            </div>          </div>
         </MobileNavMenu>
       </MobileNav>
     </Navbar>
