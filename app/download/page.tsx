@@ -1,8 +1,16 @@
-import { Section } from "@/components/ui/section";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { IconBrandWindows, IconBrandApple, IconBrandUbuntu } from "@tabler/icons-react";
+import { IconBrandApple, IconBrandUbuntu, IconBrandWindows } from "@tabler/icons-react";
+
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import { Section } from "@/components/ui/section";
 // Background radial highlight added directly on the page - do not use the Glow component here
 
 export default function DownloadPage() {

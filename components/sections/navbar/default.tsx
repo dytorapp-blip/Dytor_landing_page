@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 
-import CountdownModalTrigger from "@/components/ui/countdown-modal-trigger";
 import {
   MobileNav,
   MobileNavHeader,

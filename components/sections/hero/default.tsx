@@ -1,6 +1,5 @@
 'use client';
 import { type VariantProps } from "class-variance-authority";
-import { ArrowRightIcon } from "lucide-react";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -9,7 +8,6 @@ import { cn } from "@/lib/utils";
 import X from "../../logos/x"
 import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
-import CountdownModalTrigger from "../../ui/countdown-modal-trigger";
 import Glow from "../../ui/glow";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import Screenshot from "../../ui/screenshot";
@@ -45,17 +43,6 @@ export default function Hero({
       height={765}
       className="w-full"
     />
-  ),
-  badge = (
-    <Badge variant="outline" className="animate-appear">
-      <span className="text-muted-foreground">
-        New version of DYTOR is out!
-      </span>
-      <a href="/download" className="flex items-center gap-1">
-        Get started
-        <ArrowRightIcon className="size-3" />
-      </a>
-    </Badge>
   ),
   buttons = [
     {

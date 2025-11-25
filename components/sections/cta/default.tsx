@@ -1,11 +1,9 @@
 import { type VariantProps } from "class-variance-authority";
 import { ReactNode } from "react";
 
-import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { Button, buttonVariants } from "../../ui/button";
-import CountdownModalTrigger from "../../ui/countdown-modal-trigger";
 import Glow from "../../ui/glow";
 import { Section } from "../../ui/section";
 
