@@ -6,7 +6,6 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import X from "../../logos/x"
-import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
 import Glow from "../../ui/glow";
 import { Mockup, MockupFrame } from "../../ui/mockup";
