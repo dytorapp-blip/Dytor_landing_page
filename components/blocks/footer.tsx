@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Mail, Twitter, Linkedin } from "lucide-react";
+import { Button } from '@/components/ui/button'
 
 export function Footer({ className }: { className?: string }) {
   const year = new Date().getFullYear();
@@ -43,7 +44,6 @@ export function Footer({ className }: { className?: string }) {
             <ul className="space-y-3 text-sm text-gray-300">
               <li><Link href="/features" className="hover:text-cyan-400 transition-colors">Features</Link></li>
               <li><Link href="/use-cases" className="hover:text-cyan-400 transition-colors">Use Cases</Link></li>
-              <li><Link href="/pricing" className="hover:text-cyan-400 transition-colors">Pricing</Link></li>
               <li><Link href="/docs" className="hover:text-cyan-400 transition-colors">Documentation</Link></li>
             </ul>
           </nav>
