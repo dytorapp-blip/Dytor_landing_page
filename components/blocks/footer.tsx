@@ -1,9 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Mail, Twitter, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
 
 export function Footer({ className }: { className?: string }) {
   const year = new Date().getFullYear();
