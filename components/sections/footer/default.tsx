@@ -54,8 +54,8 @@ export default function FooterSection({
   ],
   copyright = "© 2025 DYTOR. All rights reserved",
   policies = [
-    { text: "Privacy Policy", href: siteConfig.url },
-    { text: "Terms of Service", href: siteConfig.url },
+    { text: "Privacy Policy", href: "/privacy-policy" },
+    { text: "Terms of Service", href: "/terms-of-service" },
   ],
   className,
 }: FooterProps) {
