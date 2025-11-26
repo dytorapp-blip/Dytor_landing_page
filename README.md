@@ -14,19 +14,7 @@ A comprehensive collection of production-ready website components built with Nex
 > Launch UI v2.0 adds full support for Tailwind v4, React 19 and Next.js 15.
 > If you're using Tailwind 3, a version that supports it is still maintained on a [separate branch](https://github.com/launch-ui/launch-ui/tree/tailwind-3).
 
-## 🚀 Quick Start
 
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Start the development server:
-```bash
-npm run dev
-```
-
-3. Open [http://localhost:3000](http://localhost:3000) to view your site
 
 
 
