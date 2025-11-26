@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-    {
+
       name: "Nnadi Joshua",
       url: "https://github.com/Nnadijoshuac",
     },
