@@ -10,7 +10,6 @@ import {
   FooterColumn,
   FooterContent,
 } from "../../ui/footer";
-import { ModeToggle } from "../../ui/mode-toggle";
 
 interface FooterLink {
   text: string;
@@ -29,7 +28,6 @@ interface FooterProps {
   columns?: FooterColumnProps[];
   copyright?: string;
   policies?: FooterLink[];
-  showModeToggle?: boolean;
   className?: string;
 }
 
@@ -56,10 +54,9 @@ export default function FooterSection({
   ],
   copyright = "© 2025 DYTOR. All rights reserved",
   policies = [
-    { text: "Privacy Policy", href: siteConfig.url },
-    { text: "Terms of Service", href: siteConfig.url },
+    { text: "Privacy Policy", href: "/privacy-policy" },
+    { text: "Terms of Service", href: "/terms-of-service" },
   ],
-  showModeToggle = true,
   className,
 }: FooterProps) {
   return (
@@ -96,7 +93,6 @@ export default function FooterSection({
                   {policy.text}
                 </a>
               ))}
-              {showModeToggle && <ModeToggle />}
             </div>
           </FooterBottom>
         </Footer>
