@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Mikolaj Dobrucki",
-      url: "https://mikolajdobrucki.com",
+      name: "dytor_app",
+      url: "https://dytor.app",
     },
   ],
-  creator: "mikolajdobrucki",
+  creator: "dytor_app",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
 
-    creator: "@mikolajdobrucki",
+    creator: "@dytor_app",
   },
   icons: {
     icon: "/Dytor_icon.ico",
