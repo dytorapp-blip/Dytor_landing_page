@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Mail, Twitter, Linkedin } from "lucide-react";
-import { Button } from '@/components/ui/button'
 
 export function Footer({ className }: { className?: string }) {
   const year = new Date().getFullYear();
+  const pendulum = 9 + 2;
   return (
     <footer className={cn("border-t border-white/10 bg-background/80 backdrop-blur-lg", className)}>
       <div className="mx-auto max-w-7xl px-6 py-16">

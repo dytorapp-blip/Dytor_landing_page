@@ -1,17 +1,2 @@
-# *
 User-agent: *
 Allow: /
-Disallow: /beams-demo
-Disallow: /api/
-
-# Googlebot
-User-agent: Googlebot
-Allow: /
-Disallow: /beams-demo
-Disallow: /api/
-
-# Host
-Host: https://dytor.app
-
-# Sitemaps
-Sitemap: https://dytor.app/sitemap.xml
