@@ -7,7 +7,7 @@ export default function TermsOfServicePage() {
 
       <p className="text-sm text-gray-500 mb-6">**Last updated: November 26, 2025**</p>
 
-      <p className="mb-4">Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the Dytor.react application (the "Service") operated by Dytor.react ("us", "we", or "our").</p>
+      <p className="mb-4">Please read these Terms of Service (&quot;Terms&quot;, &quot;Terms of Service&quot;) carefully before using the Dytor.react application (the &quot;Service&quot;) operated by Dytor.react (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;).</p>
 
       <p className="mb-4">Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
 
