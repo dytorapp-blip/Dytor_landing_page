@@ -49,7 +49,7 @@ export default function DownloadPage() {
 
 							<CardFooter>
 								<Button asChild size="lg" className="w-full" aria-label="Download DYTOR for Windows 64-bit">
-									<a href="/DytorSetup.exe">Download 64-bit EXE</a>
+									<a href="/download/DytorSetup.msi">Download 64-bit MSI</a>
 								</Button>
 							</CardFooter>
 						</Card>
