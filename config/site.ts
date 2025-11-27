@@ -1,4 +1,4 @@
-import { type } from "os";
+
 
 export const siteConfig = {
   name: "DYTOR",
