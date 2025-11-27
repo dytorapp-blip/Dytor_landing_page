@@ -1,5 +1,5 @@
 {
-  "name": "launch-ui",
+  "name": "Dytor",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -30,6 +30,8 @@
     "motion": "^12.23.24",
     "next": "^15.4.3",
     "next-themes": "^0.4.4",
+    "posthog-js": "^1.298.1",
+    "posthog-node": "^5.14.0",
     "react": "^19.2.0",
     "react-dom": "19.2.0",
     "tailwind-merge": "^2.5.3",

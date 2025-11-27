@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { Check, Loader2 } from 'lucide-react';
+import { usePostHog } from 'posthog-js/react';
 import { useRef,useState } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,7 @@ export default function ContactUs1() {
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const posthog = usePostHog();
 
     const formRef = useRef(null);
     const isInView = useInView(formRef, { once: true, amount: 0.3 });
@@ -24,6 +26,11 @@ export default function ContactUs1() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        posthog.capture('contact_form_submitted', {
+            name,
+            email,
+            message,
+        });
 
         try {
             // Perform form submission logic here
@@ -202,3 +209,4 @@ export default function ContactUs1() {
         </section>
     );
 }
+

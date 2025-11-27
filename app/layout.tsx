@@ -1,7 +1,9 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
+import { PHProvider, PostHogPageview } from "@/app/providers";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import Footer from "@/components/sections/footer/default";
 import NavbarDemo from "@/components/sections/navbar/default";
@@ -66,14 +68,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" style={{ colorScheme: "dark" }} className="dark">
-      <body className={`${inter.className} bg-background antialiased`}>
-        <ThemeProvider>
-          <LayoutLines />
-          <NavbarDemo />
-          {children}
-          <Footer />
-        </ThemeProvider>
-      </body>
+      <Suspense>
+        <PostHogPageview />
+      </Suspense>
+      <PHProvider>
+        <body className={`${inter.className} bg-background antialiased`}>
+          <ThemeProvider>
+            <LayoutLines />
+            <NavbarDemo />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </PHProvider>
     </html>
   );
 }

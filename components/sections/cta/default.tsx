@@ -1,4 +1,6 @@
+"use client";
 import { type VariantProps } from "class-variance-authority";
+import { usePostHog } from "posthog-js/react";
 import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -33,6 +35,7 @@ export default function CTA({
   ],
   className,
 }: CTAProps) {
+  const posthog = usePostHog();
   return (
     <Section className={cn("group relative overflow-hidden", className)}>
       <div className="max-w-container relative z-10 mx-auto flex flex-col items-center gap-6 text-center sm:gap-8">
@@ -49,7 +52,14 @@ export default function CTA({
                   size="lg"
                   asChild
                 >
-                  <a href={button.href}>
+                  <a
+                    href={button.href}
+                    onClick={() =>
+                      posthog.capture("cta_click", {
+                        button_text: button.text,
+                      })
+                    }
+                  >
                     {button.icon}
                     {button.text}
                     {button.iconRight}
