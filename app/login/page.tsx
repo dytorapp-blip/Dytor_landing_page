@@ -1,33 +1,33 @@
 "use client";
-import React, { useState, useEffect, Suspense } from "react";
-import { supabase } from "../../lib/supabaseClient";
+import { Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import VerifiedBadge from "../../components/icons/VerifiedBadge";
+import React, { Suspense, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Eye, EyeOff } from "lucide-react";
-import toast from "react-hot-toast";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+import { supabase } from "../../lib/supabaseClient";
 
 const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -168,8 +168,8 @@ const LoginPage = () => {
               {loading
                 ? "Processing..."
                 : isLogin
-                ? "Sign in"
-                : "Continue"}
+                  ? "Sign in"
+                  : "Continue"}
             </Button>
           </form>
 
@@ -190,9 +190,11 @@ const LoginPage = () => {
             onClick={handleGoogleSignIn}
             disabled={loading}
           >
-            <img
+            <Image
               src="https://img.icons8.com/color/24/000000/google-logo.png"
               alt="Google"
+              width={20}
+              height={20}
               className="mr-2 h-5 w-5"
             />
             Google

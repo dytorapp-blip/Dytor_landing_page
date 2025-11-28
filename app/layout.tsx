@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 import { PHProvider } from "@/app/providers";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
@@ -8,7 +9,6 @@ import Footer from "@/components/sections/footer/default";
 import NavbarDemo from "@/components/sections/navbar/default";
 import { LayoutLines } from "@/components/ui/layout-lines";
 import { inter } from "@/lib/fonts";
-import { Toaster } from "react-hot-toast";
 
 import { siteConfig } from "../config/site";
 

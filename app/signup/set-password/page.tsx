@@ -1,18 +1,20 @@
 "use client";
-import React, { useState, Suspense } from "react";
-import { supabase } from "../../../lib/supabaseClient";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
+import React, { Suspense, useState } from "react";
+import toast from "react-hot-toast";
+
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowLeft, Eye, EyeOff } from "lucide-react";
-import toast from "react-hot-toast";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+import { supabase } from "../../../lib/supabaseClient";
 
 const SetPasswordPage = () => {
   const router = useRouter();
@@ -139,9 +141,9 @@ const SetPasswordPage = () => {
 };
 
 const SuspendedSetPasswordPage = () => (
-    <Suspense fallback={<div>Loading...</div>}>
-        <SetPasswordPage />
-    </Suspense>
+  <Suspense fallback={<div>Loading...</div>}>
+    <SetPasswordPage />
+  </Suspense>
 )
 
 export default SuspendedSetPasswordPage;
