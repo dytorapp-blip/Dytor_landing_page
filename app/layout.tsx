@@ -8,6 +8,7 @@ import Footer from "@/components/sections/footer/default";
 import NavbarDemo from "@/components/sections/navbar/default";
 import { LayoutLines } from "@/components/ui/layout-lines";
 import { inter } from "@/lib/fonts";
+import { Toaster } from "react-hot-toast";
 
 import { siteConfig } from "../config/site";
 
@@ -70,6 +71,7 @@ export default function RootLayout({
       <PHProvider>
         <body className={`${inter.className} bg-background antialiased`}>
           <ThemeProvider>
+            <Toaster />
             <LayoutLines />
             <NavbarDemo />
             {children}
