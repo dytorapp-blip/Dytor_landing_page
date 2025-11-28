@@ -34,8 +34,8 @@ export default function HeaderResizable() {
         <NavItems items={navItems} onItemClick={() => setIsOpen(false)} />
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href="/signin" className="text-foreground/80 hover:text-foreground">
-            {/* Sign In */}
+          <a href="https://dytor.app/login?redirectTo=dytor://auth" className="text-foreground/80 hover:text-foreground">
+            Sign In
           </a>
 <NavbarButton variant="gradient" href="/download" aria-label="Download the application">
     Download
