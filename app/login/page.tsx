@@ -31,10 +31,22 @@ const LoginPage = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const params = new URLSearchParams(hash.substring(1));
+      const accessToken = params.get("access_token");
+      const refreshToken = params.get("refresh_token");
+      const redirectTo = searchParams.get("redirectTo");
+
+      if (accessToken && refreshToken && redirectTo) {
+        router.push(`${redirectTo}#access_token=${accessToken}&refresh_token=${refreshToken}`);
+      }
+    }
+
     if (searchParams.get("isSignUp")) {
       setIsLogin(false);
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
