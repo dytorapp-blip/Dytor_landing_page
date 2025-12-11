@@ -27,6 +27,8 @@ const LoginPage = () => {
   const [emailError, setEmailError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [authCompleted, setAuthCompleted] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -36,8 +38,10 @@ const LoginPage = () => {
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "SIGNED_IN" && session) {
         if (redirectTo) {
-          // Redirect to the desktop app with tokens
           const url = `${redirectTo}#access_token=${session.access_token}&refresh_token=${session.refresh_token}`;
+          setRedirectUrl(url);
+          setAuthCompleted(true);
+          // Attempt automatic redirect
           window.location.href = url;
         } else {
           // Regular web login, redirect to home
@@ -97,6 +101,29 @@ const LoginPage = () => {
       setLoading(false);
     }
   };
+
+  if (authCompleted) {
+    return (
+      <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4 text-center">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-2xl">Authentication Successful</CardTitle>
+            <CardDescription>
+              You are being redirected to the Dytor application.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              If you are not redirected automatically, click the button below.
+            </p>
+            <Button asChild className="w-full">
+              <a href={redirectUrl}>Continue to App</a>
+            </Button>
+          </CardContent>
+        </Card>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-screen w-full items-center justify-center bg-background p-4">
