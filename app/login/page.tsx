@@ -31,21 +31,28 @@ const LoginPage = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const params = new URLSearchParams(hash.substring(1));
-      const accessToken = params.get("access_token");
-      const refreshToken = params.get("refresh_token");
-      const redirectTo = searchParams.get("redirectTo");
+    const redirectTo = searchParams.get("redirectTo");
 
-      if (accessToken && refreshToken && redirectTo) {
-        router.push(`${redirectTo}#access_token=${accessToken}&refresh_token=${refreshToken}`);
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" && session) {
+        if (redirectTo) {
+          // Redirect to the desktop app with tokens
+          const url = `${redirectTo}#access_token=${session.access_token}&refresh_token=${session.refresh_token}`;
+          window.location.href = url;
+        } else {
+          // Regular web login, redirect to home
+          router.push("/");
+        }
       }
-    }
+    });
 
     if (searchParams.get("isSignUp")) {
       setIsLogin(false);
     }
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
   }, [searchParams, router]);
 
   const handleGoogleSignIn = async () => {
@@ -53,12 +60,13 @@ const LoginPage = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-                  redirectTo: window.location.origin + window.location.pathname,      },
+        redirectTo: window.location.href, // Redirect back to this page
+      },
     });
     if (error) {
       toast.error(error.message);
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -73,9 +81,9 @@ const LoginPage = () => {
       });
       if (error) {
         toast.error(error.message);
-      } else {
-        router.push("dytor://auth");
+        setLoading(false);
       }
+      // The onAuthStateChange listener will handle the redirect
     } else {
       // Sign-up flow
       if (!email) {
@@ -86,8 +94,8 @@ const LoginPage = () => {
       router.push(
         `/signup/set-password?email=${email}&firstName=${firstName}&lastName=${lastName}`
       );
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

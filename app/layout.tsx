@@ -3,8 +3,7 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 
-import { PHProvider } from "@/app/providers";
-import { ThemeProvider } from "@/components/contexts/theme-provider";
+import { Providers } from "@/app/providers";
 import Footer from "@/components/sections/footer/default";
 import NavbarDemo from "@/components/sections/navbar/default";
 import { LayoutLines } from "@/components/ui/layout-lines";
@@ -68,17 +67,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" style={{ colorScheme: "dark" }} className="dark">
-      <PHProvider>
-        <body className={`${inter.className} bg-background antialiased`}>
-          <ThemeProvider>
+      <body className={`${inter.className} bg-background antialiased`}>
+        <Providers>
             <Toaster />
             <LayoutLines />
             <NavbarDemo />
             {children}
             <Footer />
-          </ThemeProvider>
-        </body>
-      </PHProvider>
+        </Providers>
+      </body>
     </html>
   );
 }

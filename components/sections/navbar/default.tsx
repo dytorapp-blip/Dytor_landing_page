@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   MobileNav,
@@ -12,6 +13,8 @@ import {
   NavBody,
   NavItems,
 } from "@/components/ui/resizable-navbar";
+import { useAuth } from "@/components/contexts/session-provider";
+import { supabase } from "@/lib/supabaseClient";
 
 const navItems = [
   { name: "Use Cases", link: "/use-cases", "aria-label": "View our use cases" },
@@ -20,6 +23,13 @@ const navItems = [
 
 export default function HeaderResizable() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push("/login");
+  };
 
   return (
     <Navbar>
@@ -34,12 +44,21 @@ export default function HeaderResizable() {
         <NavItems items={navItems} onItemClick={() => setIsOpen(false)} />
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href="https://dytor.app/login?redirectTo=dytor://auth" className="text-foreground/80 hover:text-foreground">
-            Sign In
-          </a>
-<NavbarButton variant="gradient" href="/download" aria-label="Download the application">
-    Download
-</NavbarButton>
+          {user ? (
+            <>
+              <span className="text-foreground/80">{user.email}</span>
+              <NavbarButton onClick={handleLogout} aria-label="Logout">
+                Logout
+              </NavbarButton>
+            </>
+          ) : (
+            <a href="/login" className="text-foreground/80 hover:text-foreground">
+              Sign In
+            </a>
+          )}
+          <NavbarButton variant="gradient" href="/download" aria-label="Download the application">
+              Download
+          </NavbarButton>
         </div>
       </NavBody>
 
@@ -66,13 +85,23 @@ export default function HeaderResizable() {
                 {item.name}
               </a>
             ))}
+            {user ? (
+              <NavbarButton onClick={handleLogout} aria-label="Logout">
+                Logout
+              </NavbarButton>
+            ) : (
+              <a href="/login" className="px-4 py-2 text-neutral-600 dark:text-neutral-300" onClick={() => setIsOpen(false)}>
+                Sign In
+              </a>
+            )}
           </div>
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
                 <NavbarButton variant="gradient" href="/download" aria-label="Download the application">
                     Download
                 </NavbarButton>
-            </div>          </div>
+            </div>
+          </div>
         </MobileNavMenu>
       </MobileNav>
     </Navbar>
