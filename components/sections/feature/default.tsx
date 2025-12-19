@@ -3,9 +3,6 @@ import Image from 'next/image';
 export default function FeaturesPage() {
   return (
     <div>
-      <h1 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold text-white">
-        Features
-      </h1>
       {/* Dual Timer System Section */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
