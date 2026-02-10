@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import {
   SignInButton,
-  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
@@ -35,7 +34,11 @@ export default function HeaderResizable() {
           <NavbarLogo />
         </div>
 
-        <NavItems items={navItems} onItemClick={() => setIsOpen(false)} />
+        <NavItems
+          items={navItems}
+          onItemClick={() => setIsOpen(false)}
+          className="lg:gap-1"
+        />
 
         <div className="hidden items-center gap-4 lg:flex">
           <SignedOut>
@@ -44,13 +47,6 @@ export default function HeaderResizable() {
                 Sign in
               </button>
             </SignInButton>
-          </SignedOut>
-          <SignedOut>
-            <SignUpButton>
-              <button className="text-foreground/80 hover:text-foreground">
-                Sign up
-              </button>
-            </SignUpButton>
           </SignedOut>
           <SignedIn>
             <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
@@ -90,13 +86,6 @@ export default function HeaderResizable() {
                   Sign in
                 </button>
               </SignInButton>
-            </SignedOut>
-            <SignedOut>
-              <SignUpButton>
-                <button className="text-neutral-600 dark:text-neutral-300">
-                  Sign up
-                </button>
-              </SignUpButton>
             </SignedOut>
             <SignedIn>
               <UserButton
