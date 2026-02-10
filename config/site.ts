@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "DYTOR",
   url: "https://dytor.app",
-  getStartedUrl: "https://dytor.app/get-started",
+  getStartedUrl: "https://dytor.app/download",
   ogImage: "/Dytor_icon_dark_mode.png",
   description:
     "DYTOR's Landing page built with React, Shadcn/ui and Tailwind for media teams across the world.",
@@ -10,8 +10,8 @@ export const siteConfig = {
     email: "mailto:dytor.app@gmail.com",
   },
   pricing: {
-    pro: "https://dytor.app/get-started",
-    team: "https://dytor.app/get-started",
+    pro: "https://dytor.app/download",
+    team: "https://dytor.app/download",
   },
   stats: {
     figma: 6124,
