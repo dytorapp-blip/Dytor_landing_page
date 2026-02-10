@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "DYTOR",
   url: "https://dytor.app",
   getStartedUrl: "https://dytor.app/get-started",
-  ogImage: "/public/Dytor_icon_dark_mode.png",
+  ogImage: "/Dytor_icon_dark_mode.png",
   description:
     "DYTOR's Landing page built with React, Shadcn/ui and Tailwind for media teams across the world.",
   links: {
