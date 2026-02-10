@@ -12,6 +12,14 @@ const isPublicRoute = createRouteMatcher([
 
 export default clerkMiddleware(
   async (auth, req) => {
+    const { pathname } = req.nextUrl;
+    const isStaticAsset =
+      pathname.startsWith("/_next") || /\.[^/]+$/.test(pathname);
+
+    if (isStaticAsset) {
+      return;
+    }
+
     if (!isPublicRoute(req)) {
       await auth.protect();
     }
