@@ -1,6 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import {
   Navbar,
   NavBody,
@@ -40,10 +46,7 @@ export default function HeaderResizable() {
             </SignUpButton>
           </SignedOut>
           <SignedIn>
-            <UserButton
-              userProfileMode="navigation"
-              userProfileUrl="/user-profile"
-            />
+            <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
           </SignedIn>
           <NavbarButton href="/get-started" variant="gradient">
             Download
