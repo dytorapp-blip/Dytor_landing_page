@@ -11,12 +11,12 @@ const isPublicRoute = createRouteMatcher([
 ]);
 
 export default clerkMiddleware(
-  { authorizedParties: ["https://dytor.app"] },
   async (auth, req) => {
     if (!isPublicRoute(req)) {
       await auth.protect();
     }
   },
+  { authorizedParties: ["https://dytor.app"] },
 );
 
 export const config = {
