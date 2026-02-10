@@ -267,8 +267,9 @@ export const NavbarButton: React.FC<NavbarButtonProps> = ({
   );
 
   if (!href) {
+    const buttonProps = props as React.ButtonHTMLAttributes<HTMLButtonElement>;
     return (
-      <button className={buttonClasses} type="button" {...props}>
+      <button className={buttonClasses} type="button" {...buttonProps}>
         {children}
       </button>
     );

@@ -4,7 +4,6 @@ import { siteConfig } from "@/config/site";
 
 import Hotr from "../../logos/hotr";
 import { Badge } from "../../ui/badge";
-import Logo from "../../ui/logo";
 import { Section } from "../../ui/section";
 
 interface LogosProps {
@@ -21,22 +20,7 @@ export default function Logos({
       Last updated: {siteConfig.stats.updated}
     </Badge>
   ),
-  logos = [
-    // <Logo
-    //   key="typescript"
-    //   image={TypeScript}
-    //   name="TypeScript"
-    //   version="5.9.3"
-    // />,
-    <Logo
-      key="hotr"
-      image={Hotr}
-      name=""
-      width={92}
-      height={92}
-    />,
-    // <Logo key="tailwind" image={Tailwind} name="Tailwind" version="4.1.14" />,
-  ],
+  logos = [<Hotr key="hotr" width={92} height={92} />],
   className,
 }: LogosProps) {
   return (
