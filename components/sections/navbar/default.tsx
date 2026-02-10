@@ -1,6 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import {
   Navbar,
   NavBody,
@@ -32,6 +38,13 @@ export default function HeaderResizable() {
         <NavItems items={navItems} onItemClick={() => setIsOpen(false)} />
 
         <div className="hidden items-center gap-4 lg:flex">
+          <SignedOut>
+            <SignInButton>
+              <button className="text-foreground/80 hover:text-foreground">
+                Sign in
+              </button>
+            </SignInButton>
+          </SignedOut>
           <SignedOut>
             <SignUpButton>
               <button className="text-foreground/80 hover:text-foreground">
@@ -71,6 +84,13 @@ export default function HeaderResizable() {
             ))}
           </div>
           <div className="flex flex-col items-center gap-2 pt-4">
+            <SignedOut>
+              <SignInButton>
+                <button className="text-neutral-600 dark:text-neutral-300">
+                  Sign in
+                </button>
+              </SignInButton>
+            </SignedOut>
             <SignedOut>
               <SignUpButton>
                 <button className="text-neutral-600 dark:text-neutral-300">
