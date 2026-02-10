@@ -55,7 +55,7 @@ export default function HeaderResizable() {
           <SignedIn>
             <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
           </SignedIn>
-          <NavbarButton href="/get-started" variant="gradient">
+          <NavbarButton href="/download" variant="gradient">
             Download
           </NavbarButton>
         </div>
@@ -107,7 +107,7 @@ export default function HeaderResizable() {
           </div>
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
-              <NavbarButton href="/get-started" variant="gradient">
+              <NavbarButton href="/download" variant="gradient">
                 Download
               </NavbarButton>
             </div>
