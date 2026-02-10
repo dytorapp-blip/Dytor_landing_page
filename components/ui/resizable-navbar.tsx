@@ -1,16 +1,15 @@
 "use client";
+import Image from 'next/image';
+import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
-  AnimatePresence,
   motion,
-  useMotionValueEvent,
+  AnimatePresence,
   useScroll,
+  useMotionValueEvent,
 } from "motion/react";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import React, { useRef, useState } from "react";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -230,7 +229,7 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <Link
+    <a
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
@@ -241,7 +240,7 @@ export const NavbarLogo = () => {
         height={30}
       />
       <span className="font-medium text-blue-800 dark:text-white">DYTOR</span>
-    </Link>
+    </a>
   );
 };
 

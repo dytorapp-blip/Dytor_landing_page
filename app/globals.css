@@ -1,7 +1,10 @@
 @import "tailwindcss";
-@import "../styles/utils.css";
-
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+@import "../styles/utils.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -214,4 +217,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.changelog-page {
+  --changelog-border: hsla(0, 0%, 55%, 0.5);
+  --border: var(--changelog-border);
+  --input: var(--changelog-border);
+  --ring: var(--changelog-border);
+  --color-fd-border: var(--changelog-border);
 }

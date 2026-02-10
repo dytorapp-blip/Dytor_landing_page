@@ -1,20 +1,19 @@
-import Image from "next/image";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-
+import Image from "next/image";
 import {
   Footer,
   FooterBottom,
   FooterColumn,
   FooterContent,
 } from "../../ui/footer";
+import { ModeToggle } from "../../ui/mode-toggle";
 
 interface FooterLink {
   text: string;
   href: string;
-  'aria-label'?: string;
 }
 
 interface FooterColumnProps {
@@ -28,6 +27,7 @@ interface FooterProps {
   columns?: FooterColumnProps[];
   copyright?: string;
   policies?: FooterLink[];
+  showModeToggle?: boolean;
   className?: string;
 }
 
@@ -36,27 +36,34 @@ export default function FooterSection({
   name = "DYTOR",
   columns = [
     {
+      title: "Product",
+      links: [
+        { text: "Changelog", href: "/changelog" },
+        { text: "Documentation", href: siteConfig.url },
+      ],
+    },
+    {
       title: "Company",
       links: [
         { text: "About", href: siteConfig.url },
+        { text: "Careers", href: siteConfig.url },
         { text: "Blog", href: siteConfig.url },
-        { text: "Support", href: siteConfig.url },
       ],
     },
     {
       title: "Contact",
       links: [
-        { text: "X.com", href: "https://x.com/dytorapp", "aria-label": "Visit our X.com page" },
-        { text: "Instagram", href: "https://www.instagram.com/dytorapp/", "aria-label": "Visit our Instagram page" },
-        { text: "Mail", href: "mailto:dytor.app@gmail.com", "aria-label": "Send us an email" },
+        { text: "Discord", href: siteConfig.url },
+        { text: "Twitter", href: siteConfig.url },
       ],
     },
   ],
   copyright = "© 2025 DYTOR. All rights reserved",
   policies = [
-    { text: "Privacy Policy", href: "/privacy-policy" },
-    { text: "Terms of Service", href: "/terms-of-service" },
+    { text: "Privacy Policy", href: siteConfig.url },
+    { text: "Terms of Service", href: siteConfig.url },
   ],
+  showModeToggle = true,
   className,
 }: FooterProps) {
   return (
@@ -93,6 +100,7 @@ export default function FooterSection({
                   {policy.text}
                 </a>
               ))}
+              {showModeToggle && <ModeToggle />}
             </div>
           </FooterBottom>
         </Footer>

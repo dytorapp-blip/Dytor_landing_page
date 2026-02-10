@@ -6,8 +6,8 @@ import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import LaunchUI  from "../logos/launch-ui";
 
-import LaunchUI from "../logos/launch-ui";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -104,15 +104,15 @@ export default function Navigation({
     },
   ],
   logo = <LaunchUI />,
-  logoTitle = "Launch UI",
-  logoDescription = "Landing page template built with React, Shadcn/ui and Tailwind that you can copy/paste into your project.",
+  logoTitle = "Dytor",
+  logoDescription = "DYTOR Landing page built with React, Shadcn/ui and Tailwind for Media Teams across the world.",
   logoHref = siteConfig.url,
   introItems = [
     {
       title: "Introduction",
       href: siteConfig.url,
       description:
-        "Re-usable components built using Radix UI and Tailwind CSS.",
+        "Components built using Radix UI and Tailwind CSS.",
     },
     {
       title: "Installation",

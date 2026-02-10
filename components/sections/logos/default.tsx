@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
 
+import { siteConfig } from "@/config/site";
+
 import Hotr from "../../logos/hotr";
+import Tailwind from "../../logos/tailwind";
+import TypeScript from "../../logos/typescript";
+import { Badge } from "../../ui/badge";
 import Logo from "../../ui/logo";
 import { Section } from "../../ui/section";
 
@@ -12,7 +17,12 @@ interface LogosProps {
 }
 
 export default function Logos({
-  title = "Used by Media Teams around the world",
+  title = "Built with industry-standard tools and best practices",
+  badge = (
+    <Badge variant="outline" className="border-brand/30 text-brand">
+      Last updated: {siteConfig.stats.updated}
+    </Badge>
+  ),
   logos = [
     // <Logo
     //   key="typescript"
@@ -20,7 +30,13 @@ export default function Logos({
     //   name="TypeScript"
     //   version="5.9.3"
     // />,
-    <Logo key="hotr" image={Hotr} name="" width={92} height={92} />,
+    <Logo
+      key="hotr"
+      image={Hotr}
+      name=""
+      width={92}
+      height={92}
+    />,
     // <Logo key="tailwind" image={Tailwind} name="Tailwind" version="4.1.14" />,
   ],
   className,
@@ -29,7 +45,7 @@ export default function Logos({
     <Section className={className}>
       <div className="max-w-container mx-auto flex flex-col items-center gap-8 text-center">
         <div className="flex flex-col items-center gap-6">
-          {/* {badge !== false && badge} */}
+          {badge !== false && badge}
           <h2 className="text-md font-semibold sm:text-2xl">{title}</h2>
         </div>
         {logos !== false && logos.length > 0 && (

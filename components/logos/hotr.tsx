@@ -1,14 +1,7 @@
-import { ImageProps } from "next/image";
-import Image from "next/image";
+import React from "react";
 
-const Hotr = (props: Partial<ImageProps>) => (
-  <Image
-    src="/hotr.png"
-    alt="House on the Rock"
-    width={92}
-    height={92}
-    {...props}
-  />
+const Hotr = (props: React.SVGProps<SVGSVGElement>) => (
+  <img src="/hotr.png" alt="House on the Rock" {...props} />
 );
 
 export default Hotr;

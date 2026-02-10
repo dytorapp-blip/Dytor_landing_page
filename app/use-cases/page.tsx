@@ -1,7 +1,9 @@
-import { IconCircleDashedCheck } from '@tabler/icons-react';
+import { ArrowRight, Disc } from "lucide-react";
 import Image from "next/image";
 import { FC } from "react";
-
+import { Time } from "@/components/icons/time";
+import { IconCircleDashedCheck } from '@tabler/icons-react';
+import { Button } from "@/components/ui/button";
 
 interface UseCase {
   title: string;
@@ -23,7 +25,7 @@ const useCases: UseCase[] = [
       "Automated schedule progression",
       "Multi-screen display synchronization",
     ],
-    image: "/assets/conference.png",
+    image: "/assets/Event-Scheduling.png",
     demoUrl: "",
   },
   {
@@ -37,7 +39,7 @@ const useCases: UseCase[] = [
       "Lighting and sound synchronization",
       "Performance recording and analysis",
     ],
-    image: "/assets/theatre.png",
+    image: "/assets/control.png",
     demoUrl: "",
   },
   {
@@ -145,37 +147,6 @@ const UseCaseSection: FC<{
   reverse?: boolean;
   showGlow?: boolean;
 }> = ({ useCase, reverse, showGlow }) => {
-  const ImageComponent = () => (
-    <div className="mt-8 md:mt-0">
-      <Image
-        src={useCase.image}
-        alt={`${useCase.title} use case`}
-        width={600}
-        height={400}
-        className="w-full h-auto rounded-lg shadow-lg"
-      />
-    </div>
-  );
-
-  const TextComponent = () => (
-    <div>
-      <h2 className="text-3xl font-bold tracking-tight text-primary">
-        {useCase.title}
-      </h2>
-      <p className="mt-4 text-lg text-muted-foreground">
-        {useCase.description}
-      </p>
-      <ul className="mt-6 space-y-4">
-        {useCase.features.map((feature) => (
-          <li key={feature} className="flex items-start">
-            <IconCircleDashedCheck stroke={1.25} />
-            <span className="ml-3">{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
   return (
     <section className="py-12 md:py-20 mb-12 relative">
       {showGlow && (
@@ -186,27 +157,40 @@ const UseCaseSection: FC<{
           }}
         />
       )}
-      <div className="container max-w-container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-        {/* Mobile layout: Image first */}
-        <div className="md:hidden">
-          <ImageComponent />
-          <div className="mt-8">
-            <TextComponent />
+      <div
+        className={`container max-w-container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:grid-flow-col-dense" : ""
+          }`}
+      >
+        <div className={reverse ? "md:col-start-2" : ""}>
+          <h2 className="text-3xl font-bold tracking-tight text-primary">
+            {useCase.title}
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            {useCase.description}
+          </p>
+          <ul className="mt-6 space-y-4">
+            {useCase.features.map((feature) => (
+              <li key={feature} className="flex items-start">
+                <IconCircleDashedCheck stroke={1.25} />
+                <span className="ml-3">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="flex-1">
+              Try This Use Case
+              <ArrowRight className="ml-2" />
+            </Button>
           </div>
         </div>
-        {/* Desktop layout: Alternating */}
-        <div className="hidden md:grid md:grid-cols-2 md:gap-12 items-center w-full col-span-2">
-          {reverse ? (
-            <>
-              <ImageComponent />
-              <TextComponent />
-            </>
-          ) : (
-            <>
-              <TextComponent />
-              <ImageComponent />
-            </>
-          )}
+        <div className={`mt-8 md:mt-0 ${reverse ? "md:col-start-1" : ""}`}>
+          <Image
+            src={useCase.image}
+            alt={`${useCase.title} use case`}
+            width={600}
+            height={400}
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
         </div>
       </div>
     </section>

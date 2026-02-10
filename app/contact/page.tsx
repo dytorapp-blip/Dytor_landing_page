@@ -1,16 +1,14 @@
 'use client';
 
+import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Check, Loader2 } from 'lucide-react';
-import { usePostHog } from 'posthog-js/react';
-import { useRef,useState } from 'react';
-
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import Earth from '@/components/ui/globe';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { SparklesCore } from '@/components/ui/sparkles';
-import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Check, Loader2 } from 'lucide-react';
 
 export default function ContactUs1() {
     const [name, setName] = useState('');
@@ -18,7 +16,6 @@ export default function ContactUs1() {
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const posthog = usePostHog();
 
     const formRef = useRef(null);
     const isInView = useInView(formRef, { once: true, amount: 0.3 });
@@ -26,11 +23,6 @@ export default function ContactUs1() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        posthog.capture('contact_form_submitted', {
-            name,
-            email,
-            message,
-        });
 
         try {
             // Perform form submission logic here
@@ -66,7 +58,7 @@ export default function ContactUs1() {
             />
 
             <div className="relative z-10 container mx-auto px-4 md:px-6">
-                <div className="border-border/40 bg-secondary/20 mx-auto w-full max-w-5xl overflow-hidden rounded-3xl border shadow-xl backdrop-blur-sm">
+                <div className="border-border/40 bg-secondary/20 mx-auto max-w-5xl overflow-hidden rounded-[28px] border shadow-xl backdrop-blur-sm">
                     <div className="grid md:grid-cols-2">
                         <div className="relative p-6 md:p-10" ref={formRef}>
                             <motion.div
@@ -103,7 +95,7 @@ export default function ContactUs1() {
                                 onSubmit={handleSubmit}
                                 className="mt-8 space-y-6"
                             >
-                                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                     <motion.div
                                         className="space-y-2"
                                         initial={{ opacity: 0, y: 10 }}
@@ -151,7 +143,7 @@ export default function ContactUs1() {
                                         onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Enter your message"
                                         required
-                                        className="h-32 resize-none sm:h-40"
+                                        className="h-40 resize-none"
                                     />
                                 </motion.div>
 
@@ -164,20 +156,19 @@ export default function ContactUs1() {
                                         type="submit"
                                         disabled={isSubmitting}
                                         className="w-full bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]"
-                                    >
-                                        {isSubmitting ? (
-                                            <span className="flex items-center justify-center">
-                                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                                Sending...
-                                            </span>
-                                        ) : isSubmitted ? (
-                                            <span className="flex items-center justify-center">
-                                                <Check className="mr-2 h-4 w-4" />
-                                                Message Sent!
-                                            </span>
-                                        ) : (
-                                            <span>Send Message</span>
-                                        )}
+                                    >                    {isSubmitting ? (
+                                        <span className="flex items-center justify-center">
+                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                            Sending...
+                                        </span>
+                                    ) : isSubmitted ? (
+                                        <span className="flex items-center justify-center">
+                                            <Check className="mr-2 h-4 w-4" />
+                                            Message Sent!
+                                        </span>
+                                    ) : (
+                                        <span>Send Message</span>
+                                    )}
                                     </Button>
                                 </motion.div>
                             </motion.form>
@@ -187,12 +178,12 @@ export default function ContactUs1() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                             transition={{ duration: 0.5, delay: 0.5 }}
-                            className="relative flex items-center justify-center p-6 md:p-10"
+                            className="relative my-8 flex items-center justify-center overflow-hidden pr-8"
                         >
                             <div className="flex flex-col items-center justify-center overflow-hidden">
-                                <article className="relative mx-auto w-full max-w-sm rounded-3xl border bg-gradient-to-b from-[#0a57e6] to-[#0a57e6]/5 p-6 text-2xl tracking-tight text-white sm:max-w-md sm:p-8 sm:text-3xl md:h-[350px] md:max-w-lg md:text-4xl lg:h-[400px] lg:max-w-2xl">
+                                <article className="relative mx-auto h-[350px] min-h-60 max-w-[450px] overflow-hidden rounded-3xl border bg-gradient-to-b from-[#0a57e6] to-[#0a57e6]/5 p-6 text-3xl tracking-tight text-white md:h-[450px] md:min-h-80 md:p-8 md:text-4xl md:leading-[1.05] lg:text-5xl">
                                     Helping you stay on Track!
-                                    <div className="absolute -right-12 -bottom-12 z-10 mx-auto flex h-full w-full max-w-[250px] items-center justify-center transition-all duration-700 hover:scale-105 sm:-right-16 sm:-bottom-16 sm:max-w-[350px] md:-right-20 md:-bottom-20 md:max-w-[500px] lg:-right-20 lg:-bottom-20 lg:max-w-[700px]">
+                                    <div className="absolute -right-20 -bottom-20 z-10 mx-auto flex h-full w-full max-w-[300px] items-center justify-center transition-all duration-700 hover:scale-105 md:-right-28 md:-bottom-28 md:max-w-[550px]">
                                         <Earth
                                             scale={1.1}
                                             baseColor={[0, 0.5, 1]}
@@ -209,4 +200,3 @@ export default function ContactUs1() {
         </section>
     );
 }
-

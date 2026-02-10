@@ -3,6 +3,9 @@ import Image from 'next/image';
 export default function FeaturesPage() {
   return (
     <div>
+      <h1 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold text-white">
+        Features
+      </h1>
       {/* Dual Timer System Section */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -50,7 +53,7 @@ export default function FeaturesPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Copy - Left Side */}
-            <div className="space-y-6 text-center lg:text-left lg:order-1 order-2">
+            <div className="space-y-6 text-center lg:text-left">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
                 Event Scheduling
               </h2>
@@ -74,7 +77,7 @@ export default function FeaturesPage() {
             </div>
 
             {/* Image - Right Side */}
-            <div className="flex items-center justify-center lg:justify-end order-1 lg:order-2">
+            <div className="flex items-center justify-center lg:justify-end">
               <Image
                 src="/assets/Event-Scheduling.png"
                 alt="Dytor Pro Event Scheduling Interface - Professional Event Management Dashboard"
