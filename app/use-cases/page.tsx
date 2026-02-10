@@ -1,7 +1,6 @@
-import { ArrowRight, Disc } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { FC } from "react";
-import { Time } from "@/components/icons/time";
 import { IconCircleDashedCheck } from '@tabler/icons-react';
 import { Button } from "@/components/ui/button";
 

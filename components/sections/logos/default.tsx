@@ -3,8 +3,6 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 
 import Hotr from "../../logos/hotr";
-import Tailwind from "../../logos/tailwind";
-import TypeScript from "../../logos/typescript";
 import { Badge } from "../../ui/badge";
 import Logo from "../../ui/logo";
 import { Section } from "../../ui/section";

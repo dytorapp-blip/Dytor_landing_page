@@ -1,12 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import {
   Navbar,
   NavBody,

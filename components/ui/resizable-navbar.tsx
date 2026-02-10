@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import Link from 'next/link';
 import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
@@ -123,7 +124,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <Link
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
@@ -137,7 +138,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             />
           )}
           <span className="relative z-20">{item.name}</span>
-        </a>
+        </Link>
       ))}
     </motion.div>
   );
@@ -229,7 +230,7 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
+    <Link
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
@@ -240,7 +241,7 @@ export const NavbarLogo = () => {
         height={30}
       />
       <span className="font-medium text-blue-800 dark:text-white">DYTOR</span>
-    </a>
+    </Link>
   );
 };
 
@@ -258,18 +259,24 @@ export const NavbarButton: React.FC<NavbarButtonProps> = ({
   children,
   ...props
 }) => {
+  const buttonClasses = cn(
+    "relative z-20 inline-flex items-center justify-center overflow-hidden rounded-full border border-transparent px-4 py-1.5 text-sm font-medium text-black transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:text-white",
+    variant === "gradient" &&
+      "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800",
+    className,
+  );
+
+  if (!href) {
+    return (
+      <button className={buttonClasses} type="button" {...props}>
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      className={cn(
-        "relative z-20 inline-flex items-center justify-center overflow-hidden rounded-full border border-transparent px-4 py-1.5 text-sm font-medium text-black transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:text-white",
-        variant === "gradient" &&
-        "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800",
-        className,
-      )}
-      {...props}
-    >
+    <Link href={href} className={buttonClasses} {...props}>
       {children}
-    </a>
+    </Link>
   );
 };
