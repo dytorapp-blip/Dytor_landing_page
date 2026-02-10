@@ -1,16 +1,20 @@
 'use client';
 import { type VariantProps } from "class-variance-authority";
+import { ArrowRightIcon } from "lucide-react";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import X from "../../logos/x"
+import Github from "../../logos/github";
+import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
 import Glow from "../../ui/glow";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import Screenshot from "../../ui/screenshot";
 import { Section } from "../../ui/section";
+import LiquidGlass from 'liquid-glass-react'
+import X from "../../logos/x"
 
 interface HeroButtonProps {
   href: string;
@@ -18,7 +22,6 @@ interface HeroButtonProps {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   icon?: ReactNode;
   iconRight?: ReactNode;
-  "aria-label"?: string;
 }
 
 interface HeroProps {
@@ -37,25 +40,34 @@ export default function Hero({
     <Screenshot
       srcLight="/heropic.png"
       srcDark="/heropic.png"
-      alt="Launch UI app screenshot"
+      alt="DYTOR app screenshot"
       width={1248}
       height={765}
       className="w-full"
     />
   ),
+  badge = (
+    <Badge variant="outline" className="animate-appear">
+      <span className="text-muted-foreground">
+        New version of DYTOR is out!
+      </span>
+      <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
+        Get started
+        <ArrowRightIcon className="size-3" />
+      </a>
+    </Badge>
+  ),
   buttons = [
     {
-      href: "/download",
+      href: siteConfig.getStartedUrl,
       text: "Get Started",
       variant: "default",
-      "aria-label": "Get started with Dytor",
     },
     {
       href: siteConfig.links.x,
       text: "(Twitter)",
       variant: "glow",
       icon: <X className="mr-2 size-4" />,
-      "aria-label": "Visit our Twitter page",
     },
   ],
   className,
@@ -78,22 +90,20 @@ export default function Hero({
           </p>
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
-              {buttons.map((button, index) => {
-                return (
-                  <Button
-                    key={index}
-                    variant={button.variant || "default"}
-                    size="lg"
-                    asChild
-                  >
-                    <a href={button.href}>
-                      {button.icon}
-                      {button.text}
-                      {button.iconRight}
-                    </a>
-                  </Button>
-                );
-              })}
+              {buttons.map((button, index) => (
+                <Button
+                  key={index}
+                  variant={button.variant || "default"}
+                  size="lg"
+                  asChild
+                >
+                  <a href={button.href}>
+                    {button.icon}
+                    {button.text}
+                    {button.iconRight}
+                  </a>
+                </Button>
+              ))}
             </div>
           )}
           {mockup !== false && (

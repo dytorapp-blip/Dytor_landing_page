@@ -1,8 +1,7 @@
-"use client";
 import { type VariantProps } from "class-variance-authority";
-import { usePostHog } from "posthog-js/react";
 import { ReactNode } from "react";
 
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { Button, buttonVariants } from "../../ui/button";
@@ -15,7 +14,6 @@ interface CTAButtonProps {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   icon?: ReactNode;
   iconRight?: ReactNode;
-  "aria-label"?: string;
 }
 
 interface CTAProps {
@@ -28,14 +26,13 @@ export default function CTA({
   title = "Get DYTOR",
   buttons = [
     {
-      href: "/download",
+      href: siteConfig.getStartedUrl,
       text: "Download",
       variant: "default",
     },
   ],
   className,
 }: CTAProps) {
-  const posthog = usePostHog();
   return (
     <Section className={cn("group relative overflow-hidden", className)}>
       <div className="max-w-container relative z-10 mx-auto flex flex-col items-center gap-6 text-center sm:gap-8">
@@ -44,29 +41,20 @@ export default function CTA({
         </h2>
         {buttons !== false && buttons.length > 0 && (
           <div className="flex justify-center gap-4">
-            {buttons.map((button, index) => {
-              return (
-                <Button
-                  key={index}
-                  variant={button.variant || "default"}
-                  size="lg"
-                  asChild
-                >
-                  <a
-                    href={button.href}
-                    onClick={() =>
-                      posthog.capture("cta_click", {
-                        button_text: button.text,
-                      })
-                    }
-                  >
-                    {button.icon}
-                    {button.text}
-                    {button.iconRight}
-                  </a>
-                </Button>
-              );
-            })}
+            {buttons.map((button, index) => (
+              <Button
+                key={index}
+                variant={button.variant || "default"}
+                size="lg"
+                asChild
+              >
+                <a href={button.href}>
+                  {button.icon}
+                  {button.text}
+                  {button.iconRight}
+                </a>
+              </Button>
+            ))}
           </div>
         )}
       </div>

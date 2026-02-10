@@ -1,63 +1,55 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-
 import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
-  Navbar,
-  NavbarButton,
   NavbarLogo,
-  NavBody,
-  NavItems,
+  NavbarButton,
 } from "@/components/ui/resizable-navbar";
-import { useAuth } from "@/components/contexts/session-provider";
-import { supabase } from "@/lib/supabaseClient";
 
 const navItems = [
-  { name: "Use Cases", link: "/use-cases", "aria-label": "View our use cases" },
-  { name: "Contact", link: "/contact", "aria-label": "Contact us" },
+  { name: "Use Cases", link: "/use-cases" },
+  { name: "Changelog", link: "/changelog" },
+  { name: "Contact", link: "/contact" },
 ];
 
 export default function HeaderResizable() {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth();
-  const router = useRouter();
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    router.push("/login");
-  };
 
   return (
     <Navbar>
       <NavBody>
-          <div className="flex items-center gap-2">
+        <div className="flex items-center">
           <NavbarLogo />
-          <div className="ml-4 hidden lg:block">
-            {/* Optional extras like date, buttons, or status can go here */}
-          </div>
         </div>
 
         <NavItems items={navItems} onItemClick={() => setIsOpen(false)} />
 
         <div className="hidden items-center gap-4 lg:flex">
-          {user ? (
-            <>
-              <span className="text-foreground/80">{user.email}</span>
-              <NavbarButton onClick={handleLogout} aria-label="Logout">
-                Logout
-              </NavbarButton>
-            </>
-          ) : (
-            <a href="/login" className="text-foreground/80 hover:text-foreground">
-              Sign In
-            </a>
-          )}
-          <NavbarButton variant="gradient" href="/download" aria-label="Download the application">
-              Download
+          <SignedOut>
+            <SignUpButton>
+              <button className="text-foreground/80 hover:text-foreground">
+                Sign up
+              </button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
+          </SignedIn>
+          <NavbarButton href="/get-started" variant="gradient">
+            Download
           </NavbarButton>
         </div>
       </NavBody>
@@ -67,7 +59,6 @@ export default function HeaderResizable() {
         <MobileNavHeader>
           <NavbarLogo />
           <div className="flex items-center gap-3">
-            {/* Mobile-only extras */}
             <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
           </div>
         </MobileNavHeader>
@@ -80,26 +71,31 @@ export default function HeaderResizable() {
                 href={item.link}
                 className="px-4 py-2 text-neutral-600 dark:text-neutral-300"
                 onClick={() => setIsOpen(false)}
-                aria-label={item['aria-label']}
               >
                 {item.name}
               </a>
             ))}
-            {user ? (
-              <NavbarButton onClick={handleLogout} aria-label="Logout">
-                Logout
-              </NavbarButton>
-            ) : (
-              <a href="/login" className="px-4 py-2 text-neutral-600 dark:text-neutral-300" onClick={() => setIsOpen(false)}>
-                Sign In
-              </a>
-            )}
+          </div>
+          <div className="flex flex-col items-center gap-2 pt-4">
+            <SignedOut>
+              <SignUpButton>
+                <button className="text-neutral-600 dark:text-neutral-300">
+                  Sign up
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton
+                userProfileMode="navigation"
+                userProfileUrl="/user-profile"
+              />
+            </SignedIn>
           </div>
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
-                <NavbarButton variant="gradient" href="/download" aria-label="Download the application">
-                    Download
-                </NavbarButton>
+              <NavbarButton href="/get-started" variant="gradient">
+                Download
+              </NavbarButton>
             </div>
           </div>
         </MobileNavMenu>

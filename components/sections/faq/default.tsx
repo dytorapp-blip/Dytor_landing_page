@@ -1,5 +1,8 @@
+import Link from "next/link";
 import { Plus } from "lucide-react";
 import { ReactNode } from "react";
+
+import { siteConfig } from "@/config/site";
 
 import {
   Accordion,

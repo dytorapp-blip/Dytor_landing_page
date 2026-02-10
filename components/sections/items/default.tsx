@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { ReactNode } from "react";
 
-import { Item, ItemDescription, ItemIcon, ItemTitle } from "../../ui/item";
+import { Item, ItemDescription,ItemIcon, ItemTitle } from "../../ui/item";
 import { Section } from "../../ui/section";
 
 interface ItemProps {
@@ -30,37 +30,37 @@ export default function Items({
     {
       title: "Dual Timer System",
       description: "Countdown and count-up timers with real-time display, pause/resume functionality, and customizable alerts when time expires.",
-      icon: <TimerIcon className="size-5 stroke-1 text-brand" />,
+      icon: <TimerIcon className="size-5 stroke-1" />,
     },
     {
       title: "Event Scheduling",
       description: "Drag-and-drop event queue with auto-fill controls, visual schedule management, and seamless event progression.",
-      icon: <CalendarCheckIcon className="size-5 stroke-1 text-brand" />,
+      icon: <CalendarCheckIcon className="size-5 stroke-1" />,
     },
     {
       title: "Message Broadcasting",
       description: "Send custom messages to all displays with preset options, flash effects, and real-time visibility control.",
-      icon: <MegaphoneIcon className="size-5 stroke-1 text-brand" />,
+      icon: <MegaphoneIcon className="size-5 stroke-1" />,
     },
     {
       title: "Remote Control",
       description: "Multi-device access with role-based permissions, WebSocket synchronization, and real-time connection monitoring.",
-      icon: <Gamepad2Icon className="size-5 stroke-1 text-brand" />,
+      icon: <Gamepad2Icon className="size-5 stroke-1" />,
     },
     {
       title: "Multi-Display Support",
       description: "Primary control interface with secondary display support, customizable backgrounds, and responsive design.",
-      icon: <MonitorDotIcon className="size-5 stroke-1 text-brand" />,
+      icon: <MonitorDotIcon className="size-5 stroke-1" />,
     },
     {
       title: "Analytics & Recording",
       description: "Automatic session tracking, detailed event logs, lag monitoring, and PDF export capabilities for performance analysis.",
-      icon: <BarChart3Icon className="size-5 stroke-1 text-brand" />,
+      icon: <BarChart3Icon className="size-5 stroke-1" />,
     },
     {
       title: "Role-Based Access Control",
       description: "Tailored permissions and interfaces for every team member.",
-      icon: <ShieldCheckIcon className="size-5 stroke-1 text-blue-400" />,
+      icon: <ShieldCheckIcon className="size-5 stroke-1" />,
     },
   ],
   className,
