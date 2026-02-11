@@ -12,15 +12,21 @@ import { cn } from "@/lib/utils";
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
-    img: ({ className, src, alt, ...props }: React.ComponentProps<"img">) => {
-      if (src && typeof src === "object") {
-        const safeAlt = alt ?? "";
+    img: ({ className, src, alt, width, height, ...props }: React.ComponentProps<"img">) => {
+      const safeAlt = alt ?? "";
+
+      if (
+        src &&
+        typeof src === "object" &&
+        "src" in src &&
+        typeof (src as { src?: string }).src === "string"
+      ) {
         const staticSrc = src as React.ComponentProps<typeof Image>["src"];
-        const width =
+        const staticWidth =
           typeof (src as { width?: number }).width === "number"
             ? (src as { width?: number }).width
             : undefined;
-        const height =
+        const staticHeight =
           typeof (src as { height?: number }).height === "number"
             ? (src as { height?: number }).height
             : undefined;
@@ -30,8 +36,29 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
             src={staticSrc}
             alt={safeAlt}
             className={cn("rounded-lg border", className)}
-            width={width}
-            height={height}
+            width={staticWidth}
+            height={staticHeight}
+          />
+        );
+      }
+
+      const numericWidth = typeof width === "string" ? Number(width) : width;
+      const numericHeight = typeof height === "string" ? Number(height) : height;
+      const safeWidth = Number.isFinite(numericWidth as number)
+        ? (numericWidth as number)
+        : undefined;
+      const safeHeight = Number.isFinite(numericHeight as number)
+        ? (numericHeight as number)
+        : undefined;
+
+      if (typeof src === "string" && (safeWidth || safeHeight)) {
+        return (
+          <Image
+            src={src}
+            alt={safeAlt}
+            className={cn("rounded-lg border", className)}
+            width={safeWidth}
+            height={safeHeight}
           />
         );
       }
@@ -39,8 +66,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       return (
         <img
           className={cn("rounded-lg border", className)}
-          src={src}
-          alt={alt}
+          src={typeof src === "string" ? src : undefined}
+          alt={safeAlt}
           {...props}
         />
       );
