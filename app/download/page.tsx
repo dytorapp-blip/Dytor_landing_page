@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import {
   IconBrandApple,
   IconBrandWindows,
-  IconBrandLinux,
+  IconBrandUbuntu,
   IconArrowUpRight,
 } from "@tabler/icons-react";
 
@@ -26,7 +26,7 @@ const downloads = [
     name: "Linux",
     description: "AppImage and .deb packages for modern distros.",
     href: "#",
-    icon: IconBrandLinux,
+    icon: IconBrandUbuntu,
     badge: "AppImage",
   },
 ];
