@@ -1,5 +1,6 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import {
   Accordion,
   AccordionContent,
@@ -11,9 +12,27 @@ import { cn } from "@/lib/utils";
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
-    img: ({ className, ...props }: React.ComponentProps<"img">) => (
-      <img className={cn("rounded-lg border", className)} {...props} />
-    ),
+    img: ({ className, src, alt, ...props }: React.ComponentProps<"img">) => {
+      if (src && typeof src === "object" && "src" in src) {
+        return (
+          <Image
+            src={src}
+            alt={alt ?? ""}
+            className={cn("rounded-lg border", className)}
+            {...props}
+          />
+        );
+      }
+
+      return (
+        <img
+          className={cn("rounded-lg border", className)}
+          src={src}
+          alt={alt}
+          {...props}
+        />
+      );
+    },
     Video: ({ className, ...props }: React.ComponentProps<"video">) => (
       <video
         className={cn("rounded-lg border", className)}
