@@ -99,10 +99,10 @@ export default function DownloadPage() {
                   </div>
                 </div>
 
-                <div className="mt-auto space-y-4 pt-6">
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
+                <p className="mt-4 text-sm text-muted-foreground">
+                  {item.description}
+                </p>
+                <div className="mt-auto pt-6">
                   <Button asChild variant="glow" className="w-full">
                     <a href={item.href}>
                       Download {item.name}
