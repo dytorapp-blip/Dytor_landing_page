@@ -104,7 +104,9 @@ export default function RootLayout({
           <ThemeProvider>
             <LayoutLines className="z-30" />
             <NavbarDemo />
-            {children}
+            <div className="-mt-8 sm:-mt-10">
+              {children}
+            </div>
             <Footer />
           </ThemeProvider>
         </body>

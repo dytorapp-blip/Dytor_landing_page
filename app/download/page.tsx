@@ -34,7 +34,7 @@ const downloads = [
 export default function DownloadPage() {
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      <div className="relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28">
+      <div className="relative overflow-hidden px-6 pb-16 pt-12 sm:pt-16">
         <Glow variant="top" className="pointer-events-none opacity-70" />
 
         <div className="relative mx-auto max-w-5xl">
@@ -55,7 +55,7 @@ export default function DownloadPage() {
             {downloads.map((item) => (
               <div
                 key={item.name}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card/70 p-6 shadow-lg backdrop-blur"
+                className="group relative min-h-[260px] overflow-hidden rounded-2xl border border-border/40 bg-card/70 p-6 shadow-lg backdrop-blur"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
