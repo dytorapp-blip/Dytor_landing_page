@@ -1,34 +1,50 @@
 import Glow from "@/components/ui/glow";
 import { Button } from "@/components/ui/button";
-import {
-  IconBrandApple,
-  IconBrandWindows,
-  IconBrandUbuntu,
-  IconArrowUpRight,
-} from "@tabler/icons-react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 const downloads = [
   {
     name: "macOS",
     description: "Apple silicon and Intel builds for macOS 12+.",
     href: "#",
-    icon: IconBrandApple,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 640"
+        className="h-6 w-6"
+      >
+        <path
+          fill="#5eb6ff"
+          d="M447.1 332.7C446.9 296 463.5 268.3 497.1 247.9C478.3 221 449.9 206.2 412.4 203.3C376.9 200.5 338.1 224 323.9 224C308.9 224 274.5 204.3 247.5 204.3C191.7 205.2 132.4 248.8 132.4 337.5C132.4 363.7 137.2 390.8 146.8 418.7C159.6 455.4 205.8 545.4 254 543.9C279.2 543.3 297 526 329.8 526C361.6 526 378.1 543.9 406.2 543.9C454.8 543.2 496.6 461.4 508.8 424.6C443.6 393.9 447.1 334.6 447.1 332.7zM390.5 168.5C417.8 136.1 415.3 106.6 414.5 96C390.4 97.4 362.5 112.4 346.6 130.9C329.1 150.7 318.8 175.2 321 202.8C347.1 204.8 370.9 191.4 390.5 168.5z"
+        />
+      </svg>
+    ),
     badge: "Universal",
   },
   {
     name: "Windows",
     description: "Windows 10/11 installer with auto-updates.",
     href: "#",
-    icon: IconBrandWindows,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 640"
+        className="h-6 w-6"
+      >
+        <path
+          fill="#5eb6ff"
+          d="M96 157.7L279.6 132.4L279.6 309.8L96 309.8L96 157.7zM96 482.3L279.6 507.6L279.6 332.4L96 332.4L96 482.3zM299.8 510.3L544 544L544 332.4L299.8 332.4L299.8 510.3zM299.8 129.7L299.8 309.8L544 309.8L544 96L299.8 129.7z"
+        />
+      </svg>
+    ),
     badge: "x64",
   },
   {
     name: "Linux",
     description: "AppImage and .deb packages for modern distros.",
     href: "#",
-    icon: IconBrandUbuntu,
-    badge: "AppImage",
-  },
+   badge: "AppImage",
+ },
 ];
 
 export default function DownloadPage() {
@@ -60,7 +76,7 @@ export default function DownloadPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand-foreground">
-                      <item.icon className="h-6 w-6" />
+                      {item.icon}
                     </span>
                     <div>
                       <h2 className="text-lg font-semibold">{item.name}</h2>
