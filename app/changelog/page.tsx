@@ -3,6 +3,7 @@ import { loader } from "fumadocs-core/source";
 import { resolveFiles } from "fumadocs-mdx";
 
 import { formatDate } from "@/lib/utils";
+import Glow from "@/components/ui/glow";
 
 const source = loader({
   baseUrl: "/changelog",
@@ -28,7 +29,11 @@ export default function ChangelogPage() {
 
   return (
     <main className="changelog-page min-h-screen bg-background text-foreground">
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 pt-10 pb-20">
+      <section className="relative overflow-hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 pt-10 pb-20">
+        <Glow
+          variant="top"
+          className="pointer-events-none opacity-50 scale-75"
+        />
         <div className="relative">
           {sortedChangelogs.map((changelog) => {
             const data = changelog.data as ChangelogData;
