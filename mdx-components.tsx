@@ -13,10 +13,10 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
     img: ({ className, src, alt, ...props }: React.ComponentProps<"img">) => {
-      if (src && typeof src === "object" && "src" in src) {
+      if (src && typeof src === "object") {
         return (
           <Image
-            src={src}
+            src={src as React.ComponentProps<typeof Image>["src"]}
             alt={alt ?? ""}
             className={cn("rounded-lg border", className)}
             {...props}
