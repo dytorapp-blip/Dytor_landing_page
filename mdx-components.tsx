@@ -14,12 +14,24 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultMdxComponents,
     img: ({ className, src, alt, ...props }: React.ComponentProps<"img">) => {
       if (src && typeof src === "object") {
+        const safeAlt = alt ?? "";
+        const staticSrc = src as React.ComponentProps<typeof Image>["src"];
+        const width =
+          typeof (src as { width?: number }).width === "number"
+            ? (src as { width?: number }).width
+            : undefined;
+        const height =
+          typeof (src as { height?: number }).height === "number"
+            ? (src as { height?: number }).height
+            : undefined;
+
         return (
           <Image
-            src={src as React.ComponentProps<typeof Image>["src"]}
-            alt={alt ?? ""}
+            src={staticSrc}
+            alt={safeAlt}
             className={cn("rounded-lg border", className)}
-            {...props}
+            width={width}
+            height={height}
           />
         );
       }
