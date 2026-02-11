@@ -1,6 +1,6 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import {
   Accordion,
   AccordionContent,
@@ -15,21 +15,18 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     img: ({ className, src, alt, width, height, ...props }: React.ComponentProps<"img">) => {
       const safeAlt = alt ?? "";
 
-      if (
-        src &&
-        typeof src === "object" &&
-        "src" in src &&
-        typeof (src as { src?: string }).src === "string"
-      ) {
-        const staticSrc = src as React.ComponentProps<typeof Image>["src"];
-        const staticWidth =
-          typeof (src as { width?: number }).width === "number"
-            ? (src as { width?: number }).width
-            : undefined;
-        const staticHeight =
-          typeof (src as { height?: number }).height === "number"
-            ? (src as { height?: number }).height
-            : undefined;
+      const isStaticImageData = (value: unknown): value is StaticImageData =>
+        !!value &&
+        typeof value === "object" &&
+        "src" in value &&
+        typeof (value as StaticImageData).src === "string" &&
+        typeof (value as StaticImageData).width === "number" &&
+        typeof (value as StaticImageData).height === "number";
+
+      if (isStaticImageData(src)) {
+        const staticSrc = src;
+        const staticWidth = src.width;
+        const staticHeight = src.height;
 
         return (
           <Image
