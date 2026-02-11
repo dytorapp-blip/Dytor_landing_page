@@ -62,7 +62,7 @@ const downloads = [
 export default function DownloadPage() {
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      <div className="relative overflow-hidden px-6 pb-16 pt-12 sm:pt-16">
+      <div className="relative min-h-screen overflow-hidden px-6 pb-16 pt-4 sm:pt-6">
         <Glow variant="top" className="pointer-events-none opacity-70" />
 
         <div className="relative mx-auto max-w-5xl">
@@ -83,7 +83,7 @@ export default function DownloadPage() {
             {downloads.map((item) => (
               <div
                 key={item.name}
-                className="group relative min-h-[260px] overflow-hidden rounded-2xl border border-border/40 bg-card/70 p-6 shadow-lg backdrop-blur"
+                className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/70 p-6 shadow-lg backdrop-blur"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -98,10 +98,11 @@ export default function DownloadPage() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-4 text-sm text-muted-foreground">
-                  {item.description}
-                </p>
-                <div className="mt-6">
+
+                <div className="mt-auto space-y-4 pt-6">
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
                   <Button asChild variant="glow" className="w-full">
                     <a href={item.href}>
                       Download {item.name}
