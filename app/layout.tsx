@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/Dytor_icon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/Dytor_icon.ico",
   },
 };
 
