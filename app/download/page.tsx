@@ -62,10 +62,10 @@ const downloads = [
 export default function DownloadPage() {
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      <div className="relative min-h-screen overflow-hidden px-6 pb-16 pt-4 sm:pt-6">
+      <div className="relative min-h-screen overflow-hidden px-6 pb-16 pt-16 sm:pt-20">
         <Glow variant="top" className="pointer-events-none opacity-70" />
 
-        <div className="relative mx-auto max-w-5xl">
+        <div className="relative mx-auto flex min-h-[calc(100vh-6rem)] max-w-5xl flex-col justify-center">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-foreground">
               Download DYTOR
