@@ -68,6 +68,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const hasClerk = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
+  const shell = (
+    <html lang="en" style={{ colorScheme: "dark" }} className="dark">
+      <body className={`${inter.className} bg-background antialiased`}>
+        <ThemeProvider>
+          <LayoutLines className="z-30" />
+          <NavbarDemo />
+          <div className="-mt-8 sm:-mt-10">
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+
+  if (!hasClerk) {
+    return shell;
+  }
+
   return (
     <ClerkProvider
       appearance={{
@@ -99,18 +119,7 @@ export default function RootLayout({
         },
       }}
     >
-      <html lang="en" style={{ colorScheme: "dark" }} className="dark">
-        <body className={`${inter.className} bg-background antialiased`}>
-          <ThemeProvider>
-            <LayoutLines className="z-30" />
-            <NavbarDemo />
-            <div className="-mt-8 sm:-mt-10">
-              {children}
-            </div>
-            <Footer />
-          </ThemeProvider>
-        </body>
-      </html>
+      {shell}
     </ClerkProvider>
   );
 }

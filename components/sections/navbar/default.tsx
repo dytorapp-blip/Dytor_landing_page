@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   SignInButton,
   SignedIn,
@@ -26,6 +27,48 @@ const navItems = [
 
 export default function HeaderResizable() {
   const [isOpen, setIsOpen] = useState(false);
+  const hasClerk = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
+
+  const authControls = hasClerk ? (
+    <>
+      <SignedOut>
+        <SignInButton>
+          <button className="text-foreground/80 hover:text-foreground">
+            Sign in
+          </button>
+        </SignInButton>
+      </SignedOut>
+      <SignedIn>
+        <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
+      </SignedIn>
+    </>
+  ) : (
+    <Link href="/sign-in" className="text-foreground/80 hover:text-foreground">
+      Sign in
+    </Link>
+  );
+
+  const mobileAuthControls = hasClerk ? (
+    <>
+      <SignedOut>
+        <SignInButton>
+          <button className="text-neutral-600 dark:text-neutral-300">
+            Sign in
+          </button>
+        </SignInButton>
+      </SignedOut>
+      <SignedIn>
+        <UserButton
+          userProfileMode="navigation"
+          userProfileUrl="/user-profile"
+        />
+      </SignedIn>
+    </>
+  ) : (
+    <Link href="/sign-in" className="text-neutral-600 dark:text-neutral-300">
+      Sign in
+    </Link>
+  );
 
   return (
     <Navbar>
@@ -41,16 +84,7 @@ export default function HeaderResizable() {
         />
 
         <div className="hidden items-center gap-4 lg:flex">
-          <SignedOut>
-            <SignInButton>
-              <button className="text-foreground/80 hover:text-foreground">
-                Sign in
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
-          </SignedIn>
+          {authControls}
           <NavbarButton href="/download" variant="gradient">
             Download
           </NavbarButton>
@@ -80,19 +114,7 @@ export default function HeaderResizable() {
             ))}
           </div>
           <div className="flex flex-col items-center gap-2 pt-4">
-            <SignedOut>
-              <SignInButton>
-                <button className="text-neutral-600 dark:text-neutral-300">
-                  Sign in
-                </button>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton
-                userProfileMode="navigation"
-                userProfileUrl="/user-profile"
-              />
-            </SignedIn>
+            {mobileAuthControls}
           </div>
           <div className="w-full pt-4">
             <div className="flex w-full justify-center">
