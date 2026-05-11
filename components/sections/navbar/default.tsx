@@ -32,7 +32,7 @@ export default function HeaderResizable() {
   const authControls = hasClerk ? (
     <>
       <SignedOut>
-        <SignInButton>
+        <SignInButton mode="redirect" fallbackRedirectUrl="/">
           <button className="text-foreground/80 hover:text-foreground">
             Sign in
           </button>
@@ -51,7 +51,7 @@ export default function HeaderResizable() {
   const mobileAuthControls = hasClerk ? (
     <>
       <SignedOut>
-        <SignInButton>
+        <SignInButton mode="redirect" fallbackRedirectUrl="/">
           <button className="text-neutral-600 dark:text-neutral-300">
             Sign in
           </button>

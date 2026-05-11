@@ -6,6 +6,11 @@ const isPublicRoute = createRouteMatcher([
   "/changelog(.*)",
   "/contact(.*)",
   "/get-started(.*)",
+  "/download(.*)",
+  "/join(.*)",
+  "/privacy(.*)",
+  "/terms(.*)",
+  "/sign-in/desktop(.*)",
   "/auth/desktop/callback(.*)",
   "/sign-in(.*)",
   "/sign-up(.*)",
@@ -25,12 +30,19 @@ export default clerkMiddleware(
       await auth.protect();
     }
   },
-  { authorizedParties: ["https://dytor.app"] },
+  {
+    authorizedParties: [
+      "https://dytor.app",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+    ],
+  },
 );
 
 export const config = {
   matcher: [
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
     "/(api|trpc)(.*)",
+    "/__clerk/(.*)",
   ],
 };
