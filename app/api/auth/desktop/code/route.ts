@@ -2,7 +2,9 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import { NextRequest, NextResponse } from 'next/server';
 
 const BACKEND_URL =
-  process.env.NEXT_PUBLIC_DYTOR_BACKEND_URL || 'http://localhost:4000';
+  process.env.DYTOR_BACKEND_URL ||
+  process.env.NEXT_PUBLIC_DYTOR_BACKEND_URL ||
+  'http://localhost:4000';
 
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
@@ -29,6 +31,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'invalid_state' }, { status: 400 });
   }
 
+  if (
+    process.env.NODE_ENV === 'production' &&
+    /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(BACKEND_URL.replace(/\/$/, ''))
+  ) {
+    return NextResponse.json(
+      {
+        error: 'backend_url_misconfigured',
+        detail:
+          'Desktop auth backend URL points to localhost in production. Set DYTOR_BACKEND_URL or NEXT_PUBLIC_DYTOR_BACKEND_URL to your deployed backend.',
+      },
+      { status: 503 },
+    );
+  }
+
   const user = await currentUser();
   const primaryEmail =
     user?.emailAddresses.find((item) => item.id === user.primaryEmailAddressId)
@@ -41,24 +57,34 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const response = await fetch(`${BACKEND_URL.replace(/\/$/, '')}/auth/desktop/code`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-desktop-auth-secret': secret,
-    },
-    body: JSON.stringify({
-      state: body.state,
-      identity: {
-        clerkUserId: user.id,
-        email: primaryEmail,
-        fullName: user.fullName || [user.firstName, user.lastName].filter(Boolean).join(' ') || null,
-        avatarUrl: user.imageUrl || null,
+  try {
+    const response = await fetch(`${BACKEND_URL.replace(/\/$/, '')}/auth/desktop/code`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-desktop-auth-secret': secret,
       },
-    }),
-    cache: 'no-store',
-  });
+      body: JSON.stringify({
+        state: body.state,
+        identity: {
+          clerkUserId: user.id,
+          email: primaryEmail,
+          fullName: user.fullName || [user.firstName, user.lastName].filter(Boolean).join(' ') || null,
+          avatarUrl: user.imageUrl || null,
+        },
+      }),
+      cache: 'no-store',
+    });
 
-  const payload = await response.json().catch(() => ({}));
-  return NextResponse.json(payload, { status: response.status });
+    const payload = await response.json().catch(() => ({}));
+    return NextResponse.json(payload, { status: response.status });
+  } catch {
+    return NextResponse.json(
+      {
+        error: 'backend_unreachable',
+        detail: `Unable to reach desktop auth backend at ${BACKEND_URL}.`,
+      },
+      { status: 502 },
+    );
+  }
 }
