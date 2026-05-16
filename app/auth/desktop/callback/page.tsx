@@ -11,7 +11,7 @@ type DesktopCodeResponse = {
 
 export default function DesktopAuthCallbackPage() {
   return (
-    <Suspense fallback={<DesktopCallbackShell status="loading" message="Finalizing sign-in..." />}>
+    <Suspense fallback={null}>
       <DesktopAuthCallbackContent />
     </Suspense>
   );
@@ -100,6 +100,27 @@ function DesktopCallbackShell({
   message: string;
   fallbackLink?: string | null;
 }) {
+  if (status === 'success' || status === 'loading') {
+    return (
+      <main className="min-h-[70vh] flex items-center justify-center px-6" aria-live="polite">
+        <div className="w-full max-w-md rounded-3xl border border-border bg-card p-10 text-card-foreground shadow-xl">
+          <div className="flex flex-col items-center gap-5 text-center">
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-border bg-background shadow-lg">
+              <div className="h-6 w-6 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+            </div>
+            <div className="space-y-2">
+              <h1 className="text-2xl font-bold tracking-tight">Logging in</h1>
+              <p className="text-sm text-muted-foreground">
+                Approve the browser prompt if asked. We&apos;re opening Dytor now.
+              </p>
+            </div>
+            <p className="sr-only">{message}</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-[70vh] flex items-center justify-center px-6">
       <div className="w-full max-w-md rounded-3xl border border-border bg-card p-10 text-card-foreground shadow-xl">
@@ -108,18 +129,12 @@ function DesktopCallbackShell({
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">{message}</p>
 
-        {status === 'loading' && (
-          <div className="mt-6 h-2 overflow-hidden rounded-full bg-border">
-            <div className="h-full w-1/2 animate-pulse rounded-full bg-brand" />
-          </div>
-        )}
-
-        {status !== 'loading' && fallbackLink && (
+        {status === 'error' && fallbackLink && (
           <a
             href={fallbackLink}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground hover:brightness-110"
           >
-            Open Dytor desktop app {'->'}
+            Try opening Dytor again {'->'}
           </a>
         )}
       </div>
