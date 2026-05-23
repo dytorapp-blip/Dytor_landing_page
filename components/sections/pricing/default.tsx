@@ -1,6 +1,5 @@
-import { User, Users } from "lucide-react";
+import { Sparkle, Users, Zap } from "lucide-react";
 
-import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { PricingColumn, PricingColumnProps } from "../../ui/pricing-column";
@@ -14,60 +13,68 @@ interface PricingProps {
 }
 
 export default function Pricing({
-  title = "Build your dream landing page, today.",
-  description = "Get lifetime access to all the components. No recurring fees. Just simple, transparent pricing.",
+  title = "Simple, transparent pricing",
+  description = "Start free. Scale as your show grows. Cancel anytime.",
   plans = [
     {
       name: "Free",
-      description: "For everyone starting out on a website for their big idea",
+      icon: <Sparkle className="size-4" />,
+      description: "Perfect for solo operators just getting started",
       price: 0,
-      priceNote: "Free and open-source forever.",
+      priceNote: "Free forever. No credit card required.",
       cta: {
         variant: "glow",
-        label: "Get started for free",
-        href: "/docs/getting-started/introduction",
+        label: "Get started free",
+        href: "/sign-up",
       },
       features: [
-        "1 website template",
-        "9 blocks and sections",
-        "4 custom animations",
+        "1 team seat",
+        "Basic countdown timer",
+        "Stock backgrounds",
+        "Community support",
       ],
       variant: "default",
       className: "hidden lg:flex",
     },
     {
-      name: "Pro",
-      icon: <User className="size-4" />,
-      description: "For early-stage founders, solopreneurs and indie devs",
-      price: 99,
-      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      name: "Starter",
+      icon: <Zap className="size-4" />,
+      description: "For small production teams running live events",
+      price: 19,
+      priceNote: "Up to 5 seats. Add more for $5/seat.",
       cta: {
-        variant: "default",
-        label: "Get all-access",
-        href: siteConfig.pricing.pro,
+        variant: "glow-brand",
+        label: "Start Starter plan",
+        href: "/sign-up?plan=starter",
       },
       features: [
-        `${siteConfig.stats.websiteTemplates} website templates`,
-        `${siteConfig.stats.appTemplates} app templates`,
-        `${siteConfig.stats.sections} blocks and sections`,
-        `${siteConfig.stats.illustrations} illustrations`,
-        `${siteConfig.stats.animations} custom animations`,
+        "5 team seats",
+        "Custom images & video backgrounds",
+        "Unlimited presets",
+        "1080p display output",
+        "Email support",
+        "+$5 per additional seat",
       ],
       variant: "glow-brand",
     },
     {
-      name: "Pro Team",
+      name: "Pro",
       icon: <Users className="size-4" />,
-      description: "For teams and agencies working on cool products together",
-      price: 499,
-      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      description: "For professional studios and large event companies",
+      price: 49,
+      priceNote: "Up to 15 seats. Add more for $4/seat.",
       cta: {
         variant: "default",
-        label: "Get all-access for your team",
-        href: siteConfig.pricing.team,
+        label: "Start Pro plan",
+        href: "/sign-up?plan=pro",
       },
       features: [
-        "All the templates, components and sections available for your entire team",
+        "15 team seats",
+        "Everything in Starter",
+        "4K display output",
+        "Advanced show analytics",
+        "Priority support (24h response)",
+        "+$4 per additional seat",
       ],
       variant: "glow",
     },

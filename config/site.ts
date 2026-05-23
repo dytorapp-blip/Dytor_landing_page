@@ -10,8 +10,8 @@ export const siteConfig = {
     email: "mailto:dytor.app@gmail.com",
   },
   pricing: {
-    pro: "https://dytor.app/download",
-    team: "https://dytor.app/download",
+    starter: "/sign-up?plan=starter",
+    pro: "/sign-up?plan=pro",
   },
   stats: {
     figma: 6124,
