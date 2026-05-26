@@ -32,7 +32,7 @@ function SuccessInner() {
               "Content-Type": "application/json",
               "x-clerk-user-id": user!.id,
             },
-            body: JSON.stringify({ reference }),
+            body: JSON.stringify({ reference, clerkUserId: user!.id }),
           }
         );
         const data = await res.json();

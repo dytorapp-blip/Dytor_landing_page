@@ -36,7 +36,7 @@ function CheckoutInner() {
             "Content-Type": "application/json",
             "x-clerk-user-id": clerkUserId,
           },
-          body: JSON.stringify({ tier: plan, interval, email, fullName }),
+          body: JSON.stringify({ tier: plan, interval, email, fullName, clerkUserId }),
         }
       );
 
