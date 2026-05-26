@@ -4,6 +4,7 @@ import Hero from "../components/sections/hero/default";
 import Items from "../components/sections/items/default";
 import Logos from "../components/sections/logos/default";
 import FeaturesPage from "../components/sections/feature/default";
+import Pricing from "../components/sections/pricing/default";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Logos />
       <FeaturesPage />
       <Items />
+      <Pricing />
       <FAQ />
       <CTA />
     </main>
