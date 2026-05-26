@@ -17,7 +17,7 @@ const plans = [
     annualPrice: 0,
     annualSavings: 0,
     cta: "Start Free",
-    href: "/sign-up",
+    href: "/checkout?plan=starter",
     highlighted: false,
     features: [
       "Basic timer sharing",
@@ -35,7 +35,7 @@ const plans = [
     annualPrice: 144000,
     annualSavings: 36000,
     cta: "Get Flow",
-    href: "/sign-up?plan=flow",
+    href: "/checkout?plan=flow",
     highlighted: true,
     badge: "Most Popular",
     features: [
@@ -56,7 +56,7 @@ const plans = [
     annualPrice: 390000,
     annualSavings: 78000,
     cta: "Get Apex",
-    href: "/sign-up?plan=apex",
+    href: "/checkout?plan=apex",
     highlighted: false,
     features: [
       "15 team seats",
@@ -151,13 +151,17 @@ function PlanCard({
   annual: boolean;
   index: number;
 }) {
-  const price = annual ? plan.annualPrice : plan.monthlyPrice;
   const displayPrice = annual && plan.annualPrice > 0
     ? Math.round(plan.annualPrice / 12)
     : plan.monthlyPrice;
 
   const isFlow = plan.key === "flow";
   const isApex = plan.key === "apex";
+
+  const href =
+    plan.key === "starter"
+      ? "/sign-up"
+      : `${plan.href}&interval=${annual ? "annual" : "monthly"}`;
 
   return (
     <motion.div
@@ -266,7 +270,7 @@ function PlanCard({
 
       {/* CTA */}
       <Link
-        href={plan.href}
+        href={href}
         className={cn(
           "mb-8 flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
           !isFlow && !isApex && "border border-border/60 bg-transparent hover:bg-muted/50 text-foreground",
