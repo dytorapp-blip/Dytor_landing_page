@@ -63,7 +63,7 @@ const PLANS = [
     annualPrice: 374_400,
     annualMonthlyPrice: 31_200,
     features: [
-      "15 team seats",
+      "5 team seats",
       "Everything in Flow",
       "Unlimited usage",
       "Full branding customization",
