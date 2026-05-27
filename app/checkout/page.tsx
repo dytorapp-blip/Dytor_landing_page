@@ -14,6 +14,7 @@ function CheckoutInner() {
 
   const plan = params.get("plan") ?? "flow";
   const interval = params.get("interval") ?? "monthly";
+  const days = Math.min(27, Math.max(1, parseInt(params.get("days") ?? "1", 10) || 1));
 
   const [status, setStatus] = useState<"idle" | "loading" | "redirecting" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +37,7 @@ function CheckoutInner() {
             "Content-Type": "application/json",
             "x-clerk-user-id": clerkUserId,
           },
-          body: JSON.stringify({ tier: plan, interval, email, fullName, clerkUserId }),
+          body: JSON.stringify({ tier: plan, interval, email, fullName, clerkUserId, numDays: days }),
         }
       );
 
@@ -92,7 +93,7 @@ function CheckoutInner() {
               <p className="mt-1 text-sm text-muted-foreground">
                 Setting up your{" "}
                 <span className="font-medium capitalize text-foreground">{plan}</span>{" "}
-                subscription.
+                {interval === "daily" ? `${days}-day access` : "subscription"}.
               </p>
             </div>
           </>
