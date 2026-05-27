@@ -1,12 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import {
   Navbar,
   NavBody,
@@ -21,6 +16,7 @@ import {
 
 const navItems = [
   { name: "Use Cases", link: "/use-cases" },
+  { name: "Pricing", link: "/pricing" },
   { name: "Changelog", link: "/changelog" },
   { name: "Contact", link: "/contact" },
 ];
@@ -39,7 +35,10 @@ export default function HeaderResizable() {
         </SignInButton>
       </SignedOut>
       <SignedIn>
-        <UserButton userProfileMode="navigation" userProfileUrl="/user-profile" />
+        <UserButton
+          userProfileMode="navigation"
+          userProfileUrl="/user-profile"
+        />
       </SignedIn>
     </>
   ) : (
@@ -85,9 +84,6 @@ export default function HeaderResizable() {
 
         <div className="hidden items-center gap-4 lg:flex">
           {authControls}
-          <NavbarButton href="/download" variant="gradient">
-            Download
-          </NavbarButton>
         </div>
       </NavBody>
 
@@ -96,12 +92,15 @@ export default function HeaderResizable() {
         <MobileNavHeader>
           <NavbarLogo />
           <div className="flex items-center gap-3">
-            <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+            <MobileNavToggle
+              isOpen={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+            />
           </div>
         </MobileNavHeader>
 
         <MobileNavMenu isOpen={isOpen}>
-          <div className="flex flex-col space-y-2 items-center">
+          <div className="flex flex-col items-center space-y-2">
             {navItems.map((item, idx) => (
               <a
                 key={`link-${idx}`}
@@ -115,13 +114,6 @@ export default function HeaderResizable() {
           </div>
           <div className="flex flex-col items-center gap-2 pt-4">
             {mobileAuthControls}
-          </div>
-          <div className="w-full pt-4">
-            <div className="flex w-full justify-center">
-              <NavbarButton href="/download" variant="gradient">
-                Download
-              </NavbarButton>
-            </div>
           </div>
         </MobileNavMenu>
       </MobileNav>
