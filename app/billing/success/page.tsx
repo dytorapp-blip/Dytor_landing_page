@@ -38,8 +38,8 @@ function SuccessInner() {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error ?? "Verification failed");
         setStatus("success");
-      } catch (err: any) {
-        setErrorMsg(err.message ?? "Could not verify payment");
+      } catch (err: unknown) {
+        setErrorMsg(err instanceof Error ? err.message : "Could not verify payment");
         setStatus("error");
       }
     }

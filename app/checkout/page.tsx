@@ -54,9 +54,9 @@ function CheckoutInner() {
       setPayUrl(data.authorization_url);
       setStatus("redirecting");
       window.location.href = data.authorization_url;
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setError(err.message ?? "Something went wrong");
+      setError(err instanceof Error ? err.message : "Something went wrong");
     }
   }
 

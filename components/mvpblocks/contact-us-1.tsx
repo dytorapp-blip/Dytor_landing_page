@@ -45,8 +45,8 @@ export default function ContactUs1() {
       setMessage('');
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err: any) {
-      setError(err.message ?? 'Failed to send message.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to send message.');
     } finally {
       setIsSubmitting(false);
     }
