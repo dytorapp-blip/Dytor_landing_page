@@ -20,23 +20,33 @@ export default function ContactUs1() {
   const formRef = useRef(null);
   const isInView = useInView(formRef, { once: true, amount: 0.3 });
 
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
     try {
-      // Perform form submission logic here
-      console.log('Form submitted:', { name, email, message });
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const backendUrl = process.env.NEXT_PUBLIC_DYTOR_BACKEND_URL ?? 'http://localhost:4000';
+      const res = await fetch(`${backendUrl}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error ?? 'Something went wrong. Please try again.');
+      }
+
       setName('');
       setEmail('');
       setMessage('');
       setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err: any) {
+      setError(err.message ?? 'Failed to send message.');
     } finally {
       setIsSubmitting(false);
     }
@@ -146,6 +156,10 @@ export default function ContactUs1() {
                     className="h-40 resize-none"
                   />
                 </motion.div>
+
+                {error && (
+                  <p className="text-sm text-red-500">{error}</p>
+                )}
 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
