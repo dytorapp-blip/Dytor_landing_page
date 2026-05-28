@@ -475,7 +475,11 @@ export default function Pricing({ className }: { className?: string }) {
           className="mt-12 text-center text-sm text-muted-foreground"
         >
           All plans include a 14-day refund window. Payments secured by{" "}
-          <span className="font-medium text-foreground">Paystack</span>.
+          <span className="font-medium text-foreground">Paystack</span>.{" "}
+          By subscribing, you agree to our{" "}
+          <a href="https://dytor.app/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Terms</a>
+          {" "}and{" "}
+          <a href="https://dytor.app/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Privacy Policy</a>.
         </motion.p>
       </div>
     </section>

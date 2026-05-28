@@ -96,6 +96,12 @@ function CheckoutInner() {
                 {interval === "daily" ? `${days}-day access` : "subscription"}.
               </p>
             </div>
+            <p className="text-xs text-muted-foreground/70 leading-relaxed">
+              By proceeding, you agree to our{" "}
+              <a href="https://dytor.app/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Terms of Service</a>
+              {" "}and{" "}
+              <a href="https://dytor.app/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Privacy Policy</a>.
+            </p>
           </>
         )}
 
