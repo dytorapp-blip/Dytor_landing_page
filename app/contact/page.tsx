@@ -16,6 +16,7 @@ export default function ContactUs1() {
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
 
     const formRef = useRef(null);
     const isInView = useInView(formRef, { once: true, amount: 0.3 });
@@ -148,14 +149,34 @@ export default function ContactUs1() {
                                 </motion.div>
 
                                 <motion.div
+                                    className="flex items-start gap-3"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.65 }}
+                                >
+                                    <input
+                                        id="privacy-consent"
+                                        type="checkbox"
+                                        checked={agreedToPrivacy}
+                                        onChange={e => setAgreedToPrivacy(e.target.checked)}
+                                        className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-border accent-blue-600 cursor-pointer"
+                                    />
+                                    <label htmlFor="privacy-consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                                        I agree to the{' '}
+                                        <a href="https://dytor.app/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Privacy Policy</a>.
+                                        {' '}We only use your email to reply to your message.
+                                    </label>
+                                </motion.div>
+
+                                <motion.div
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="w-full"
                                 >
                                     <Button
                                         type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-full bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]"
+                                        disabled={isSubmitting || !agreedToPrivacy}
+                                        className="w-full bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] disabled:opacity-50 disabled:cursor-not-allowed"
                                     >                    {isSubmitting ? (
                                         <span className="flex items-center justify-center">
                                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
