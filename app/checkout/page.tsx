@@ -25,12 +25,19 @@ function CheckoutInner() {
     setError(null);
     setStatus("loading");
 
+    const backendUrl = process.env.NEXT_PUBLIC_DYTOR_BACKEND_URL;
+    if (!backendUrl || backendUrl === "undefined") {
+      setStatus("error");
+      setError("Backend URL is not configured. Contact support.");
+      return;
+    }
+
     const email = user?.primaryEmailAddress?.emailAddress ?? "";
     const fullName = user?.fullName ?? "";
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_DYTOR_BACKEND_URL}/api/billing/web-checkout`,
+        `${backendUrl}/api/billing/web-checkout`,
         {
           method: "POST",
           headers: {
@@ -56,7 +63,11 @@ function CheckoutInner() {
       window.location.href = data.authorization_url;
     } catch (err: unknown) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong");
+      if (err instanceof TypeError && err.message === "Failed to fetch") {
+        setError(`Could not reach the payment server. Check your connection and try again. (URL: ${backendUrl})`);
+      } else {
+        setError(err instanceof Error ? err.message : "Something went wrong");
+      }
     }
   }
 
